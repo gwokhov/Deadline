@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.gwokhou.deadline.dataType.FilterType" />
+
+        <import type="com.gwokhou.deadline.dataType.SortType" />
+
+        <variable
+            name="viewmodel"
+            type="com.gwokhou.deadline.events.EventsViewModel" />
+
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/events_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:openDrawer="start">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:background="@color/transparent"
+                    android:fitsSystemWindows="true"
+                    app:contentScrim="@color/white"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                    app:titleEnabled="false">
+
+                    <ImageView
+                        android:layout_width="360dp"
+                        android:layout_height="112dp"
+                        android:layout_gravity="center"
+                        android:fitsSystemWindows="true"
+                        android:scaleType="centerCrop"
+                        app:layout_collapseMode="parallax"
+                        app:srcCompat="@drawable/top" />
+
+                    <include
+                        layout="@layout/quick_view"
+                        android:visibility="@{viewmodel.isShowQuickView ? View.VISIBLE : View.GONE}"
+                        bind:viewmodel="@{viewmodel}" />
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/tasks_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="@dimen/spacing_smaller"
+                        app:layout_collapseMode="pin">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextClock
+                                android:id="@+id/clock"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentStart="true"
+                                android:format12Hour="@string/clock_format"
+                                android:format24Hour="@string/clock_format"
+                                android:gravity="center_vertical"
+                                android:textSize="@dimen/font_big" />
+
+                            <TextView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="@dimen/spacing_normal"
+                                android:background="@drawable/custom_counter_bg"
+                                android:gravity="center"
+                                android:text="@{String.valueOf(viewmodel.eventCurrentNum)}"
+                                android:textColor="@color/black_primary"
+                                android:textSize="@dimen/font_smaller"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                    </androidx.appcompat.widget.Toolbar>
+
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chip_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_smaller"
+                    android:animateLayoutChanges="true"
+                    android:paddingStart="@dimen/spacing_normal"
+                    android:paddingEnd="@dimen/spacing_normal"
+                    app:chipSpacing="@dimen/spacing_smaller">
+
+                    <com.google.android.material.chip.Chip
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{viewmodel.categoryDesc}'
+                        android:textColor="@color/teal_700"
+                        android:visibility='@{viewmodel.category.equals(FilterType.ALL_EVENTS) ? View.GONE : View.VISIBLE}'
+                        app:chipBackgroundColor="@color/teal_50"
+                        app:chipIcon="@drawable/ic_category_circle" />
+
+                    <com.google.android.material.chip.Chip
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/spacing_smaller"
+                        android:text="@{viewmodel.sortDesc}"
+                        android:textColor="@color/teal_700"
+                        android:visibility="@{viewmodel.sortType == SortType.CREATION_DATE ? View.GONE : View.VISIBLE}"
+                        app:chipBackgroundColor="@color/teal_50"
+                        app:chipIcon="@drawable/ic_sort_circle" />
+
+                </com.google.android.material.chip.ChipGroup>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_events"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layoutAnimation="@anim/layout_fall_down"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+            <LinearLayout
+                android:id="@+id/empty_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="@{viewmodel.isListEmpty ? View.VISIBLE : View.GONE}">
+
+                <ImageView
+                    android:layout_width="300dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/empty_hourglass" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/nothing_in_hourglass"
+                    android:textColor="@color/black_negative"
+                    android:textSize="@dimen/font_normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/click_to_add_event"
+                    android:textColor="@color/black_negative"
+                    android:textSize="@dimen/font_normal" />
+
+            </LinearLayout>
+
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:id="@+id/bottom_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:theme="@style/CustomBottomAppBar"
+                app:backgroundTint="@color/teal_700"
+                app:fabAlignmentMode="end"
+                app:hideOnScroll="true"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:navigationIcon="@drawable/ic_drawer" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:backgroundTint="@color/yellow_600"
+                app:layout_anchor="@id/bottom_bar"
+                app:navAction="@{@id/action_events_to_edit}"
+                app:rippleColor="@color/teal_700"
+                app:srcCompat="@drawable/ic_add" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/events_navigation"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:maxWidth="360dp">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical">
+
+                    <include
+                        android:id="@+id/time_progress"
+                        layout="@layout/drawer_header"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <View style="@style/Divider" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/list_drawer_filter"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/spacing_smaller"
+                        android:paddingBottom="@dimen/spacing_smaller"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                    <View style="@style/Divider" />
+
+                    <LinearLayout
+                        style="@style/ListItem"
+                        android:onClick="@{()->viewmodel.onCategoryExpandClicked()}">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_small"
+                            android:layout_height="@dimen/icon_small"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="@dimen/spacing_large"
+                            android:src="@drawable/ic_category"
+                            android:tint="@{viewmodel.isExpendCategories ? @color/teal_600 : @color/teal_800}" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/category"
+                            android:textColor="@{viewmodel.isExpendCategories ? @color/teal_600 : @color/black}"
+                            android:textSize="@dimen/font_small" />
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@{viewmodel.isExpendCategories ? @drawable/ic_expand_less : @drawable/ic_expand_more}" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="@{viewmodel.isExpendCategories ? View.VISIBLE : View.GONE}">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/list_drawer_category"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                        <TextView
+                            android:id="@+id/drawer_add_category"
+                            style="@style/ListItem"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_add"
+                            android:drawablePadding="@dimen/spacing_smaller"
+                            android:gravity="center_vertical"
+                            android:paddingStart="64dp"
+                            android:text="@string/add_category"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/font_small" />
+
+                    </LinearLayout>
+
+                    <View
+                        style="@style/Divider"
+                        android:layout_marginBottom="@dimen/spacing_smaller" />
+
+                    <LinearLayout
+                        style="@style/ListItem"
+                        app:navAction="@{@id/action_events_to_manage_categories}">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_small"
+                            android:layout_height="@dimen/icon_small"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="@dimen/spacing_large"
+                            android:src="@drawable/ic_manage_categories" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:text="@string/manage_categories"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/font_small" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/ListItem"
+                        app:navAction="@{@id/action_events_to_settings}">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_small"
+                            android:layout_height="@dimen/icon_small"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="@dimen/spacing_large"
+                            android:src="@drawable/ic_settings" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:text="@string/settings"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/font_small" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/ListItem"
+                        app:navAction="@{@id/action_events_to_about}">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_small"
+                            android:layout_height="@dimen/icon_small"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="@dimen/spacing_large"
+                            android:src="@drawable/ic_about" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:text="@string/about"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/font_small" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </com.google.android.material.navigation.NavigationView>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

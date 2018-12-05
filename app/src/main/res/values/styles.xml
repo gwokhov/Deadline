@@ -1,0 +1,90 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/teal_700</item>
+        <item name="colorPrimaryDark">@color/teal_800</item>
+        <item name="colorAccent">@color/yellow_800</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:navigationBarColor">@color/teal_700</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="DatePickerDialog" parent="Base.Theme.MaterialComponents.Light.Dialog">
+        <item name="colorAccent">@color/yellow_800</item>
+        <item name="colorPrimaryDark">@color/teal_800</item>
+        <item name="colorPrimary">@color/teal_700</item>
+    </style>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
+    </style>
+
+    <style name="CounterTextAppearance" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@color/yellow_600</item>
+    </style>
+
+    <style name="EditTextAppearance" parent="Base.Widget.MaterialComponents.TextInputEditText">
+        <item name="android:textColorPrimaryDisableOnly">@color/white_negative</item>
+        <item name="android:textColorSecondary">@color/white_secondary</item>
+        <item name="android:textColorTertiary">@color/white_negative</item>
+    </style>
+
+    <style name="CustomBottomAppBar" parent="AppTheme">
+        <item name="overlapAnchor">false</item>
+        <!--<item name="android:textColor">@color/teal_700</item>-->
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <style name="ListItem">
+        <item name="android:background">@drawable/custom_item_bg</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_marginStart">@dimen/spacing_smaller</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_smaller</item>
+        <item name="android:layout_marginTop">@dimen/spacing_tiny</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_tiny</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">11dp</item>
+        <item name="android:paddingBottom">11dp</item>
+        <item name="android:paddingStart">@dimen/spacing_smaller</item>
+        <item name="android:paddingEnd">@dimen/spacing_smaller</item>
+    </style>
+
+    <style name="ListSubTitle">
+        <item name="android:textSize">@dimen/font_small</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">@dimen/spacing_normal</item>
+        <item name="android:paddingEnd">@dimen/spacing_normal</item>
+        <item name="android:textColor">@color/yellow_800</item>
+    </style>
+
+    <style name="Divider">
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/black_lighter</item>
+    </style>
+
+    <style name="LicensesTitle">
+        <item name="android:textSize">@dimen/font_big</item>
+        <item name="android:textColor">@color/black_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_smaller</item>
+    </style>
+
+    <style name="LicensesDetail">
+        <item name="android:padding">@dimen/spacing_normal</item>
+        <item name="android:background">@drawable/custom_selected_item_bg</item>
+        <item name="android:textSize">@dimen/font_small</item>
+        <item name="android:textColor">@color/black_negative</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_smaller</item>
+    </style>
+
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <alpha
+        android:interpolator="@android:anim/anticipate_overshoot_interpolator"
+        android:duration="@android:integer/config_mediumAnimTime"
+        android:fromAlpha="0.5"
+        android:toAlpha="0.0" />
+
+</set>

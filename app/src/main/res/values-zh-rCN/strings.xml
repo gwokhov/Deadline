@@ -1,0 +1,263 @@
+<resources>
+    <!--Common-->
+    <string name="app_name">Deadline</string>
+    <string name="app_version">Ver: 1.0 beta03</string>
+    <string name="gone">过去</string>
+    <string name="ongoing">进行</string>
+    <string name="waiting">等待</string>
+    <string name="got_it">知道了</string>
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="week">周</string>
+    <string name="day">天</string>
+    <string name="hour">时</string>
+    <string name="minute">分</string>
+    <string name="second">秒</string>
+    <string name="manage_categories">分类管理</string>
+    <string name="settings">设置</string>
+    <string name="about">关于</string>
+    <string name="delete">删除</string>
+    <string name="save">保存</string>
+    <string name="durable_event">持续时间</string>
+    <string name="add_category">添加分类</string>
+
+
+    <!--Event Item-->
+    <!-- <string name="percent" translatable="false">%1$1.1f%%</string> -->
+    <string name="done">完成</string>
+    <string name="timer_state_to_start">后开始</string>
+    <string name="timer_state_to_end">后结束</string>
+
+
+    <!--Events Fragment-->
+    <string name="nothing_in_hourglass">沙漏里空空如也……</string>
+    <string name="click_to_add_event">点击 + 添加一个事件</string>
+
+    <string name="chip_all">所有</string>
+    <string name="chip_today">今天</string>
+    <string name="chip_next_7_days">未来7天</string>
+    <string name="chip_completed">已完成</string>
+    <string name="chip_inbox">收集箱</string>
+    <string name="chip_sort_alpha">按字母&#160;</string>
+    <string name="chip_sort_due_date">按截止日期&#160;</string>
+    <string name="chip_sort_priority">按优先级分类&#160;</string>
+    <string name="chip_sort_creation_date">按创建日期分类&#160;</string>
+    <string name="chip_sort_order_asc">(正序)</string>
+    <string name="chip_sort_order_desc">(倒序)</string>
+
+    <string name="navigation_drawer_open">打开抽屉</string>
+    <string name="navigation_drawer_close">关闭抽屉</string>
+
+    <plurals name="snack_deleted_events">
+        <item quantity="other">已删除 %1$d 个事项</item>
+    </plurals>
+    <string name="snack_undo">撤回</string>
+
+    <plurals name="quick_view_dawn_desc">
+        <item quantity="other">昨日只是场梦，今天有%1$d个事项待办。</item>
+    </plurals>
+    <plurals name="quick_view_morning_desc">
+        <item quantity="other">早上好，今天有%1$d个事件待处理。</item>
+    </plurals>
+    <plurals name="quick_view_afternoon_desc">
+        <item quantity="other">下午好，你还有%1$d个事件要处理。</item>
+    </plurals>
+    <plurals name="quick_view_evening_desc">
+        <item quantity="other">晚上好，今天剩余%1$d个事件。</item>
+    </plurals>
+    <string name="quick_view_no_event">今天没有事件，休息一下吧。</string>
+    <string name="quick_view_check_today">今日事件</string>
+
+    <!--Sorting Bottom Sheet-->
+    <string name="sorting_option_title">排序</string>
+    <string name="sorting_option_alphabetically">按字母排序</string>
+    <string name="sorting_option_creation_date">按创建日期</string>
+    <string name="sorting_option_due_date">按截止日期</string>
+    <string name="sorting_option_priority">按优先级</string>
+    <string name="sorting_order_asc">正序</string>
+    <string name="sorting_order_desc">倒序</string>
+
+
+    <!--Events Drawer-->
+    <string name="progress_year_summary">%1$s: %2$1.0f%%</string>
+    <string name="progress_month_summary">%1$s: %2$1.0f%%</string>
+    <string name="progress_week_summary">本周: %1$1.0f%%</string>
+    <string name="progress_today_summary">%1$s已过%2$1.0f%%</string>
+    <string name="all_events">所有事件</string>
+    <string name="today">今天</string>
+    <string name="next_7_days">未来7天</string>
+    <string name="completed">已完成</string>
+    <string name="inbox">收集箱</string>
+    <string name="category">分类</string>
+
+
+    <!--Edit Fragment-->
+    <string name="edit">编辑</string>
+    <string name="task_unselected">未选择</string>
+    <string name="event_title">标题</string>
+    <string name="event_title_max_length">32</string>
+    <string name="event_notes">备注</string>
+    <string name="event_start_date">开始日期</string>
+    <string name="event_date">截止日期</string>
+    <string name="event_category">分类</string>
+    <string name="event_priority">优先级</string>
+    <string name="event_reminder">提醒</string>
+
+    <string name="priority_none">无</string>
+    <string name="priority_low">低</string>
+    <string name="priority_medium">中</string>
+    <string name="priority_high">高</string>
+    <string name="date">日期</string>
+    <string name="advance">高级</string>
+
+    <string-array name="priority_options">
+        <item>无</item>
+        <item>低</item>
+        <item>中</item>
+        <item>高</item>
+    </string-array>
+
+    <plurals name="single_remind_minutes_desc">
+        <item quantity="other">%1$d分钟之前提醒我</item>
+    </plurals>
+    <plurals name="single_remind_hours_desc">
+        <item quantity="other">%1$d小时之前提醒我</item>
+    </plurals>
+    <plurals name="single_remind_days_desc">
+        <item quantity="other">在%1$d天前提醒我</item>
+    </plurals>
+    <plurals name="single_remind_weeks_desc">
+        <item quantity="other">在%1$d周前提醒我</item>
+    </plurals>
+
+    <string name="title_empty">标题不能为空</string>
+    <string name="due_date_empty">请设置截止日期</string>
+    <string name="date_invalid">开始日期不能晚于截止日期</string>
+
+
+    <!--Select Category Dialog-->
+    <string name="select_category">选择分类</string>
+
+    <!--Edit Category Dialog-->
+    <string name="edit_category">编辑分类</string>
+    <string name="category_name_max_length">18</string>
+    <string name="category_exists">该分类已存在</string>
+    <string name="category_empty">名称不能为空</string>
+
+
+    <!--Reminder Dialog-->
+    <string name="reminder">提醒</string>
+    <string name="single_remind">单次提醒</string>
+    <string name="single_remind_none">无</string>
+    <string name="single_remind_at_due_date">在截止日期时提醒我</string>
+
+    <string name="remind_minutes">分钟</string>
+    <string name="remind_hours">小时</string>
+    <string name="remind_days">天</string>
+    <string name="remind_weeks">周</string>
+    <string name="before">前</string>
+    <string name="repeated_remind">重复提醒</string>
+    <string name="repeated_remind_everyday">每天提醒我</string>
+    <string name="repeated_remind_always">Always Show on</string>
+
+
+    <!--Durable Mode Tips Dialog-->
+    <string name="about_durable_event">关于持续事件</string>
+    <string name="normal_event">普通事件</string>
+    <string name="durable_event_summary">在持续事件中，你可以设置事件的开始日期和截止日期，以便跟踪事件当前进度。</string>
+    <string name="normal_event_summary">普通（时刻）模式更像是一个倒计时钟，你只需要设置事件的截止日期。</string>
+
+
+    <!--Tool Bar and Menu-->
+    <string name="clock_format">MMMdd日，EE</string>
+    <string name="sort">分类</string>
+    <string name="hide_completed_events">隐藏已完成</string>
+    <string name="show_completed_events">显示已完成</string>
+
+
+    <!--About Fragment-->
+    <string name="introduction">介绍</string>
+    <string name="feedback">发送反馈</string>
+    <string name="help_translate">Help translate this app</string>
+    <string name="source_code">项目源码</string>
+    <string name="licenses">开源协议</string>
+    <string name="support_developer">支持开发者</string>
+    <string name="rate_this_app">评价一下Deadline</string>
+    <string name="donate">捐赠</string>
+    <string name="no_alipay_client">检测不到支付宝客户端</string>
+    <string name="failed_to_open_app_store">打开应用商店失败</string>
+    <string name="developer_intro">Deadline的开发者</string>
+    <!-- <string name="developer_name" translatable="false">Gwokhou</string> -->
+
+
+    <!--Introduction Fragment-->
+    <string name="intro_start">开始!</string>
+    <string name="welcome_title">欢迎使用Deadline</string>
+    <string name="welcome_summary">帮助你高效跟踪事件的状态及进度。</string>
+    <string name="feature_1_title">事件状态一目了然</string>
+    <string name="feature_1_summary">Deadline中的事件状态能精确到秒单位，并且拥有一个两种事件模式可选，同时过滤工具也能帮你找到你需要的事项。</string>
+
+
+    <!--Licenses Dialog-->
+    <string name="open_source_licenses">开源协议</string>
+    <!-- <string name="licenses_timeline_view_title" translatable="false">Timeline-View</string>
+    <string name="licenses_timeline_view_content" translatable="false">Copyright 2017 Vipul Asri\n\nLicensed under the Apache License, Version 2.0 (the "License");you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="licenses_ink_page_indicator_title" translatable="false">InkPageIndicator</string>
+    <string name="licenses_ink_page_indicator_content" translatable="false">Copyright 2018 David Păcioianu\n\nLicensed under the Apache License, Version 2.0 (the "License");you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="licenses_arc_progress_stack_view_title" translatable="false">ArcProgressStackView</string>
+    <string name="licenses_arc_progress_stack_view_content" translatable="false">Copyright {2015} {Basil Miller}\n\nLicensed under the Apache License, Version 2.0 (the "License");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an "AS IS" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.</string> -->
+
+
+    <!--Settings Fragment-->
+    <string name="general">一般</string>
+    <string name="event">事件</string>
+    <string name="quick_view">概要卡片</string>
+    <string name="start_of_the_week">每周的第一天</string>
+    <string-array name="week_start_options">
+        <item>星期一</item>
+        <item>星期日</item>
+    </string-array>
+    <string name="monday">星期一</string>
+    <string name="sunday">星期日</string>
+    <string name="default_event_mode">默认开启持续模式</string>
+    <string name="durable_mode_desc">你在持续模式中可以跟踪事件的进度。</string>
+    <string name="daily_reminder">每天提醒时间</string>
+    <string name="enable_quick_view_card">显示预览卡片</string>
+    <string name="quick_view_card_desc">预览卡片能帮助你快速了解当天事件。</string>
+    <string name="quick_view_behavior">预览卡片行为</string>
+    <string-array name="quick_view_behavior_options">
+        <item>每次打开时显示</item>
+        <item>总是显示</item>
+    </string-array>
+    <string name="quick_view_show_every_time">每次打开时显示</string>
+    <string name="quick_view_show_once_per_day">Show only once per day</string>
+    <string name="quick_view_sticky">总是显示</string>
+
+
+    <!--Manage Categories Fragment-->
+    <string name="custom_categories">自定义</string>
+    <string name="smart_categories">智能</string>
+
+
+    <!--Notification-->
+    <string name="event_notification">事件提醒</string>
+    <string name="remind_title">%1$s于%2$s结束</string>
+
+    <string name="remind_unit_now">现在</string>
+    <plurals name="remind_unit_minute">
+        <item quantity="other">%1$d分后</item>
+    </plurals>
+    <plurals name="remind_unit_hour">
+        <item quantity="other">%1$d小时后</item>
+    </plurals>
+    <plurals name="remind_unit_day">
+        <item quantity="other">%1$d天后</item>
+    </plurals>
+    <plurals name="remind_unit_week">
+        <item quantity="other">%1$d周后</item>
+    </plurals>
+    <plurals name="remind_unit_second">
+        <item quantity="other">%1$d秒后</item>
+    </plurals>
+
+</resources>

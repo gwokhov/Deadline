@@ -1,0 +1,277 @@
+<resources>
+    <!--Common-->
+    <string name="app_name">Deadline</string>
+    <string name="app_version">Ver: 1.0 beta03</string>
+    <string name="gone">Gone</string>
+    <string name="ongoing">Ongoing</string>
+    <string name="waiting">Waiting</string>
+    <string name="got_it">Got it</string>
+    <string name="year">Y</string>
+    <string name="month">M</string>
+    <string name="week">D</string>
+    <string name="day">D</string>
+    <string name="hour">H</string>
+    <string name="minute">M</string>
+    <string name="second">S</string>
+    <string name="manage_categories">Manage Categories</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+    <string name="delete">Delete</string>
+    <string name="save">Save</string>
+    <string name="durable_event">Durable event</string>
+    <string name="add_category">Add category</string>
+
+
+    <!--Event Item-->
+    <string name="percent" translatable="false">%1$1.1f%%</string>
+    <string name="done">Done</string>
+    <string name="timer_state_to_start">to Start</string>
+    <string name="timer_state_to_end">to End</string>
+
+
+    <!--Events Fragment-->
+    <string name="nothing_in_hourglass">There is nothing in the hourglass……</string>
+    <string name="click_to_add_event">Click + to add an event</string>
+
+    <string name="chip_all">All</string>
+    <string name="chip_today">Today</string>
+    <string name="chip_next_7_days">Next 7 Days</string>
+    <string name="chip_completed">Completed</string>
+    <string name="chip_inbox">Inbox</string>
+    <string name="chip_sort_alpha">Sort By Alpha&#160;</string>
+    <string name="chip_sort_due_date">Sort By Due date&#160;</string>
+    <string name="chip_sort_priority">Sort By Priority&#160;</string>
+    <string name="chip_sort_creation_date">Sort By Creation&#160;</string>
+    <string name="chip_sort_order_asc">(Asc)</string>
+    <string name="chip_sort_order_desc">(Desc)</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <plurals name="snack_deleted_events">
+        <item quantity="one">Already deleted %1$d item.</item>
+        <item quantity="other">Already deleted %1$d items.</item>
+    </plurals>
+    <string name="snack_undo">UNDO</string>
+
+    <plurals name="quick_view_dawn_desc">
+        <item quantity="one">Yesterday is but a dream, there\'s %1$d event today.</item>
+        <item quantity="other">Yesterday is but a dream, there\'re %1$d events today.</item>
+    </plurals>
+    <plurals name="quick_view_morning_desc">
+        <item quantity="one">Morning, you have %1$d event today.</item>
+        <item quantity="other">Morning, you have %1$d events today.</item>
+    </plurals>
+    <plurals name="quick_view_afternoon_desc">
+        <item quantity="one">Good Afternoon, you still have %1$d event to deal with.</item>
+        <item quantity="other">Good Afternoon, you still have %1$d events to deal with.</item>
+    </plurals>
+    <plurals name="quick_view_evening_desc">
+        <item quantity="one">Good Evening, you have %1$d event left.</item>
+        <item quantity="other">Good Evening, you have %1$d events left.</item>
+    </plurals>
+    <string name="quick_view_no_event">No event toady, take a break.</string>
+    <string name="quick_view_check_today">Today\'s events</string>
+
+    <!--Sorting Bottom Sheet-->
+    <string name="sorting_option_title">Sort By</string>
+    <string name="sorting_option_alphabetically">Alphabetically</string>
+    <string name="sorting_option_creation_date">Creation Date</string>
+    <string name="sorting_option_due_date">Due Date</string>
+    <string name="sorting_option_priority">Priority</string>
+    <string name="sorting_order_asc">Ascend</string>
+    <string name="sorting_order_desc">Descend</string>
+
+
+    <!--Events Drawer-->
+    <string name="progress_year_summary">%1$s: %2$1.0f%%</string>
+    <string name="progress_month_summary">%1$s: %2$1.0f%%</string>
+    <string name="progress_week_summary">This week: %1$1.0f%%</string>
+    <string name="progress_today_summary">%1$s has passed %2$1.0f%%</string>
+    <string name="all_events">All Events</string>
+    <string name="today">Today</string>
+    <string name="next_7_days">Next 7 Days</string>
+    <string name="completed">Completed</string>
+    <string name="inbox">Inbox</string>
+    <string name="category">Category</string>
+
+
+    <!--Edit Fragment-->
+    <string name="edit">Edit</string>
+    <string name="task_unselected">Unselected</string>
+    <string name="event_title">Title</string>
+    <string name="event_title_max_length">40</string>
+    <string name="event_notes">Notes</string>
+    <string name="event_start_date">Start Date</string>
+    <string name="event_date">Due Date</string>
+    <string name="event_category">Category</string>
+    <string name="event_priority">Priority</string>
+    <string name="event_reminder">Reminder</string>
+
+    <string name="priority_none">None</string>
+    <string name="priority_low">Low</string>
+    <string name="priority_medium">Medium</string>
+    <string name="priority_high">High</string>
+    <string name="date">Date</string>
+    <string name="advance">Advance</string>
+
+    <string-array name="priority_options">
+        <item>None</item>
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+
+    <plurals name="single_remind_minutes_desc">
+        <item quantity="one">Remind me %1$d minute before</item>
+        <item quantity="other">Remind me %1$d minutes before</item>
+    </plurals>
+    <plurals name="single_remind_hours_desc">
+        <item quantity="one">Remind me %1$d hour before</item>
+        <item quantity="other">Remind me %1$d hours before</item>
+    </plurals>
+    <plurals name="single_remind_days_desc">
+        <item quantity="one">Remind me %1$d day before</item>
+        <item quantity="other">Remind me %1$d days before</item>
+    </plurals>
+    <plurals name="single_remind_weeks_desc">
+        <item quantity="one">Remind me %1$d week before</item>
+        <item quantity="other">Remind me %1$d weeks before</item>
+    </plurals>
+
+    <string name="title_empty">Title cannot be empty</string>
+    <string name="due_date_empty">Please set the Due Date</string>
+    <string name="date_invalid">Deadline cannot be earlier than start date</string>
+
+
+    <!--Select Category Dialog-->
+    <string name="select_category">Select Category</string>
+
+    <!--Edit Category Dialog-->
+    <string name="edit_category">Edit Category</string>
+    <string name="category_name_max_length">25</string>
+    <string name="category_exists">Category already exists</string>
+    <string name="category_empty">Category name cannot be empty</string>
+
+
+    <!--Reminder Dialog-->
+    <string name="reminder">Reminder</string>
+    <string name="single_remind">Single</string>
+    <string name="single_remind_none">None</string>
+    <string name="single_remind_at_due_date">At due date of event</string>
+
+    <string name="remind_minutes">Minutes</string>
+    <string name="remind_hours">Hours</string>
+    <string name="remind_days">Days</string>
+    <string name="remind_weeks">Weeks</string>
+    <string name="before">&#160;before</string>
+    <string name="repeated_remind">Repeated</string>
+    <string name="repeated_remind_everyday">Remind me everyday</string>
+    <string name="repeated_remind_always">Always Show on</string>
+
+
+    <!--Durable Mode Tips Dialog-->
+    <string name="about_durable_event">About durable event</string>
+    <string name="normal_event">Normal event</string>
+    <string name="durable_event_summary">In durable event, you can set the start date and end date of your event to track the progress of it.</string>
+    <string name="normal_event_summary">Normal event is much like a countdown clock, your just need to set the deadline of your event.</string>
+
+
+    <!--Tool Bar and Menu-->
+    <string name="clock_format">EE, MMM dd</string>
+    <string name="sort">Sort</string>
+    <string name="hide_completed_events">Hide Completed</string>
+    <string name="show_completed_events">Show Completed</string>
+
+
+    <!--About Fragment-->
+    <string name="introduction">Introduction</string>
+    <string name="feedback">Send feedback</string>
+    <string name="help_translate">Help translate this app</string>
+    <string name="source_code">Source code</string>
+    <string name="licenses">Licenses</string>
+    <string name="support_developer">Support Developer</string>
+    <string name="rate_this_app">Rate this app</string>
+    <string name="donate">Donate (Alipay)</string>
+    <string name="no_alipay_client">No Alipay client detected</string>
+    <string name="failed_to_open_app_store">Failed to open app store</string>
+    <string name="developer_intro">Developer of Deadline</string>
+    <string name="developer_name" translatable="false">Gwokhou</string>
+
+
+    <!--Introduction Fragment-->
+    <string name="intro_start">Start!</string>
+    <string name="welcome_title">Welcome to Deadline !</string>
+    <string name="welcome_summary">Help you to track the status of events efficiently.</string>
+    <string name="feature_1_title">Event status at a glance</string>
+    <string name="feature_1_summary">Deadline has a time state which accurate to the Second, it supports swipe gestures and two event modes.</string>
+
+
+    <!--Licenses Dialog-->
+    <string name="open_source_licenses">Open Source Licenses</string>
+    <string name="licenses_timeline_view_title" translatable="false">Timeline-View</string>
+    <string name="licenses_timeline_view_content" translatable="false">Copyright 2017 Vipul Asri\n\nLicensed under the Apache License, Version 2.0 (the "License");you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="licenses_ink_page_indicator_title" translatable="false">InkPageIndicator</string>
+    <string name="licenses_ink_page_indicator_content" translatable="false">Copyright 2018 David Păcioianu\n\nLicensed under the Apache License, Version 2.0 (the "License");you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="licenses_arc_progress_stack_view_title" translatable="false">ArcProgressStackView</string>
+    <string name="licenses_arc_progress_stack_view_content" translatable="false">Copyright {2015} {Basil Miller}\n\nLicensed under the Apache License, Version 2.0 (the "License");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an "AS IS" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.</string>
+
+
+    <!--Settings Fragment-->
+    <string name="general">General</string>
+    <string name="event">Event</string>
+    <string name="quick_view">Quick View</string>
+    <string name="start_of_the_week">Start of the week</string>
+    <string-array name="week_start_options">
+        <item>Monday</item>
+        <item>Sunday</item>
+    </string-array>
+    <string name="monday">Monday</string>
+    <string name="sunday">Sunday</string>
+    <string name="default_event_mode">Durable event mode as default</string>
+    <string name="durable_mode_desc">You can track the progress of event in durable mode.</string>
+    <string name="daily_reminder">Daily Reminder</string>
+    <string name="enable_quick_view_card">Enable Quick View card</string>
+    <string name="quick_view_card_desc">Quick View card can help you to understand the events of the day quickly.</string>
+    <string name="quick_view_behavior">Quick View behavior</string>
+    <string-array name="quick_view_behavior_options">
+        <item>Show every time when I open</item>
+        <item>Always Sticky</item>
+    </string-array>
+    <string name="quick_view_show_every_time">Show every time when I open</string>
+    <string name="quick_view_show_once_per_day">Show only once per day</string>
+    <string name="quick_view_sticky">Always Sticky</string>
+
+
+    <!--Manage Categories Fragment-->
+    <string name="custom_categories">Custom</string>
+    <string name="smart_categories">Smart</string>
+
+
+    <!--Notification-->
+    <string name="event_notification">Event Notification</string>
+    <string name="remind_title">%1$s end %2$s</string>
+
+    <string name="remind_unit_now">now</string>
+    <plurals name="remind_unit_minute">
+        <item quantity="one">in %1$d minute</item>
+        <item quantity="other">in %1$d minutes</item>
+    </plurals>
+    <plurals name="remind_unit_hour">
+        <item quantity="one">in %1$d hour</item>
+        <item quantity="other">in %1$d hours</item>
+    </plurals>
+    <plurals name="remind_unit_day">
+        <item quantity="one">in %1$d day</item>
+        <item quantity="other">in %1$d days</item>
+    </plurals>
+    <plurals name="remind_unit_week">
+        <item quantity="one">in %1$d week</item>
+        <item quantity="other">in %1$d weeks</item>
+    </plurals>
+    <plurals name="remind_unit_second">
+        <item quantity="one">%1$d second</item>
+        <item quantity="other">%1$d seconds</item>
+    </plurals>
+
+</resources>

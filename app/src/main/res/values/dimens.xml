@@ -1,0 +1,36 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!-- font sizes -->
+    <dimen name="font_larger">36sp</dimen>
+    <dimen name="font_large">24sp</dimen>
+    <dimen name="font_big">18sp</dimen>
+    <dimen name="font_normal">16sp</dimen>
+    <dimen name="font_small">14sp</dimen>
+    <dimen name="font_smaller">12sp</dimen>
+    <dimen name="font_tiny">10sp</dimen>
+
+    <!-- margins and padding -->
+    <dimen name="spacing_huge">72dp</dimen>
+    <dimen name="spacing_larger">40dp</dimen>
+    <dimen name="spacing_large">32dp</dimen>
+    <dimen name="spacing_big">24dp</dimen>
+    <dimen name="spacing_normal">16dp</dimen>
+    <dimen name="spacing_small">10dp</dimen>
+    <dimen name="spacing_smaller">8dp</dimen>
+    <dimen name="spacing_little">6dp</dimen>
+    <dimen name="spacing_tiny">4dp</dimen>
+
+    <!-- sizes of views -->
+    <dimen name="icon_small">24dp</dimen>
+    <dimen name="text_percent_width">48dp</dimen>
+    <dimen name="state_marker_size">20dp</dimen>
+    <dimen name="header_height">176dp</dimen>
+    <dimen name="state_counter_height">48dp</dimen>
+    <dimen name="state_counter_title_height">24dp</dimen>
+</resources>

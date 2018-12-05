@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/event_state"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/spacing_smaller"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:textColor="@color/black_primary"
+        android:textSize="@dimen/font_small" />
+
+    <com.github.vipulasri.timelineview.TimelineView
+        android:id="@+id/event_marker"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="@dimen/spacing_smaller"
+        app:line="@color/black_light"
+        app:lineSize="2.8dp"
+        app:marker="@drawable/ic_ongoing"
+        app:markerSize="20dp" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/event_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="@dimen/spacing_smaller"
+        android:layout_marginEnd="@dimen/spacing_normal"
+        android:layout_marginBottom="@dimen/spacing_smaller"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        app:cardBackgroundColor="@color/teal_700"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="0dp">
+
+        <ProgressBar
+            android:id="@+id/event_progress"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:max="100"
+            android:progressDrawable="@drawable/custom_event_progress"
+            android:scaleY="20" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/spacing_smaller"
+            android:paddingBottom="@dimen/spacing_smaller">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_smaller"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/event_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:paddingEnd="@dimen/spacing_normal"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_normal"
+                    tools:text="@string/normal_event" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/event_priority"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/event_timer_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spacing_normal"
+                android:layout_marginRight="@dimen/spacing_normal"
+                android:layout_marginBottom="2dp"
+                android:gravity="center_vertical">
+
+                <com.gwokhou.deadline.view.TimerView
+                    android:id="@+id/event_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/spacing_tiny"
+                    app:isTimeTextBold="true"
+                    app:suffixDay="@string/day"
+                    app:suffixDayRightMargin="@dimen/spacing_tiny"
+                    app:suffixGravity="top"
+                    app:suffixHour="@string/hour"
+                    app:suffixHourRightMargin="@dimen/spacing_tiny"
+                    app:suffixMinute="@string/minute"
+                    app:suffixMinuteRightMargin="@dimen/spacing_tiny"
+                    app:suffixSecond="@string/second"
+                    app:suffixSecondRightMargin="@dimen/spacing_tiny"
+                    app:suffixTextColor="@color/white_secondary"
+                    app:suffixTextSize="@dimen/font_tiny"
+                    app:timeTextColor="@color/white_secondary"
+                    app:timeTextSize="@dimen/font_small" />
+
+                <TextView
+                    android:id="@+id/event_timer_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_little"
+                    android:paddingTop="4dp"
+                    android:textColor="@color/white_secondary"
+                    android:textSize="@dimen/font_small" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/event_due_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:layout_marginBottom="11dp"
+            android:textColor="@color/yellow_200"
+            android:textSize="@dimen/font_smaller" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:layout_width="336dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:layout_marginBottom="@dimen/spacing_small"
+        android:background="@drawable/custom_swipe_bg_yellow">
+
+        <ImageView
+            android:id="@+id/slide_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:gravity="center"
+            app:srcCompat="@drawable/ic_done" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.gwokhou.deadline.util.DateTimeUtils" />
+
+        <variable
+            name="viewmodel"
+            type="com.gwokhou.deadline.settings.SettingsViewModel" />
+
+        <variable
+            name="listener"
+            type="com.gwokhou.deadline.settings.SettingItemActionListener" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".settings.SettingsFragment">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/settings_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_back" />
+
+        <TextView
+            style="@style/ListSubTitle"
+            android:text="@string/general" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:selectableItemBackground"
+            android:onClick="@{()->listener.onStartOfWeekClicked()}"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_normal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/start_of_the_week"
+                android:textColor="@color/black_primary"
+                android:textSize="@dimen/font_normal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewmodel.isMondayWeekStart ? @string/monday : @string/sunday}"
+                android:textColor="@color/black_secondary"
+                android:textSize="@dimen/font_small" />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/ListSubTitle"
+            android:text="@string/event" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:selectableItemBackground"
+            android:orientation="horizontal"
+            android:padding="@dimen/spacing_normal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/default_event_mode"
+                    android:textColor="@color/black_primary"
+                    android:textSize="@dimen/font_normal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/durable_mode_desc"
+                    android:textColor="@color/black_secondary"
+                    android:textSize="@dimen/font_small" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:checked="@={viewmodel.isDurableModeDefault}" />
+
+        </LinearLayout>
+
+        <View
+            style="@style/Divider"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:selectableItemBackground"
+            android:onClick="@{()->listener.onDailyReminderClicked()}"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_normal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/daily_reminder"
+                android:textColor="@color/black_primary"
+                android:textSize="@dimen/font_normal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{DateTimeUtils.longToString(viewmodel.dailyRemindTime, DateTimeUtils.TIME)}"
+                android:textColor="@color/black_secondary"
+                android:textSize="@dimen/font_small" />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/ListSubTitle"
+            android:text="@string/quick_view" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:selectableItemBackground"
+            android:orientation="horizontal"
+            android:padding="@dimen/spacing_normal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enable_quick_view_card"
+                    android:textColor="@color/black_primary"
+                    android:textSize="@dimen/font_normal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/quick_view_card_desc"
+                    android:textColor="@color/black_secondary"
+                    android:textSize="@dimen/font_small" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:checked="@={viewmodel.enableQuickView}" />
+
+        </LinearLayout>
+
+        <View
+            style="@style/Divider" />
+
+        <LinearLayout
+            android:enabled="@{viewmodel.enableQuickView}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:selectableItemBackground"
+            android:onClick="@{()->listener.onQuickViewBehaviorClicked()}"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_normal">
+
+            <TextView
+                android:enabled="@{viewmodel.enableQuickView}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/quick_view_behavior"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/font_normal" />
+
+            <TextView
+                android:enabled="@{viewmodel.enableQuickView}"
+                android:text="@{viewmodel.quickViewBehDesc}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/secondary_text_color"
+                android:textSize="@dimen/font_small" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

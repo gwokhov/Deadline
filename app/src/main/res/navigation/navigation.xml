@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/events_frag">
+
+    <fragment
+        android:id="@+id/events_frag"
+        android:name="com.gwokhou.deadline.events.EventsFragment"
+        android:label="Deadline"
+        tools:layout="@layout/fragment_events">
+        <action
+            android:id="@+id/action_events_to_intro"
+            app:destination="@id/introduction_frag"
+            app:exitAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_events_to_manage_categories"
+            app:destination="@id/manage_categories_frag"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_events_to_edit"
+            app:destination="@id/edit_frag"
+            app:enterAnim="@anim/scale_from_fab"
+            app:exitAnim="@anim/fade_out"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_events_to_settings"
+            app:destination="@id/settings_frag"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_events_to_about"
+            app:destination="@id/about_frag"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/edit_frag"
+        android:name="com.gwokhou.deadline.editEvent.EditFragment"
+        android:label="@string/edit"
+        tools:layout="@layout/fragment_edit" />
+
+    <fragment
+        android:id="@+id/about_frag"
+        android:name="com.gwokhou.deadline.about.AboutFragment"
+        android:label="About"
+        tools:layout="@layout/fragment_about">
+        <action
+            android:id="@+id/action_about_to_intro"
+            app:destination="@id/introduction_frag"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/introduction_frag"
+        android:name="com.gwokhou.deadline.intro.IntroFragment"
+        android:label="Introduction"
+        tools:layout="@layout/fragment_introduction">
+    </fragment>
+
+    <fragment
+        android:id="@+id/manage_categories_frag"
+        android:name="com.gwokhou.deadline.manageCategories.ManageCategoriesFragment"
+        android:label="Manage Categories"
+        tools:layout="@layout/manage_categories_fragment" />
+
+    <fragment
+        android:id="@+id/settings_frag"
+        android:name="com.gwokhou.deadline.settings.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>

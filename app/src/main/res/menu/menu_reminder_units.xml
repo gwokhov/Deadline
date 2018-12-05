@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_remind_minutes"
+        android:name="@string/remind_minutes"
+        android:title="@string/remind_minutes"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_remind_hours"
+        android:name="@string/remind_hours"
+        android:title="@string/remind_hours"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_remind_days"
+        android:name="@string/remind_days"
+        android:title="@string/remind_days"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_remind_weeks"
+        android:name="@string/remind_weeks"
+        android:title="@string/remind_weeks"
+        app:showAsAction="never" />
+
+</menu>

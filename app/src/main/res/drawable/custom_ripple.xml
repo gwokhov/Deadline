@@ -1,0 +1,8 @@
+<!-- This file is used in everything that is clickable so that they have a nice custom_ripple effect under them. In order to make a view have a custom_ripple effect when it is touched, simply set: android:background="@drawable/custom_ripple The background color of this custom_ripple drawable changes depending on the theme that the user has selected. -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/teal_100">
+
+    <item
+        android:id="@android:id/mask"
+        android:drawable="@drawable/custom_selected_item_bg" />
+</ripple>

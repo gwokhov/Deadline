@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.gwokhou.deadline.dataType.FilterType" />
+
+        <import type="com.gwokhou.deadline.dataType.SortType" />
+
+        <variable
+            name="viewmodel"
+            type="com.gwokhou.deadline.events.EventsViewModel" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_normal"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="@dimen/spacing_normal"
+        android:layout_marginBottom="@dimen/spacing_smaller"
+
+        app:cardBackgroundColor="#eaf8f8f8"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/spacing_small"
+            android:paddingTop="@dimen/spacing_small"
+            android:paddingEnd="@dimen/spacing_small"
+            android:paddingBottom="@dimen/spacing_tiny">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="@dimen/spacing_tiny"
+                app:imageId="@{viewmodel.quickViewImg}" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:maxLines="2"
+                    android:paddingTop="@dimen/spacing_little"
+                    android:paddingBottom="@dimen/spacing_tiny"
+                    android:text="@{viewmodel.eventTodayUncompletedNum == 0 ? @string/quick_view_no_event : viewmodel.quickViewTitle}"
+                    android:textColor="@color/black_primary"
+                    android:textSize="@dimen/font_normal" />
+
+                <ProgressBar
+                    style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing_smaller"
+                    android:max="100"
+                    android:progress="@{100 - (int)(((float)viewmodel.eventTodayUncompletedNum / (float)viewmodel.eventTodayAllNum) * 100)}" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/spacing_small"
+                    android:paddingEnd="@dimen/spacing_small"
+                    android:paddingBottom="@dimen/spacing_tiny">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="top|center_horizontal"
+                            android:text="@{String.valueOf(viewmodel.eventGoneNum)}"
+                            android:textColor="@color/black_primary"
+                            android:textSize="@dimen/font_normal"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/gone"
+                            android:textColor="@color/black_secondary"
+                            android:textSize="@dimen/font_smaller"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/black_lighter" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="top|center_horizontal"
+                            android:text="@{String.valueOf(viewmodel.eventOngoingNum)}"
+                            android:textColor="@color/black_primary"
+                            android:textSize="@dimen/font_normal"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/ongoing"
+                            android:textColor="@color/black_secondary"
+                            android:textSize="@dimen/font_smaller"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/black_lighter" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="top|center_horizontal"
+                            android:text="@{String.valueOf(viewmodel.eventWaitingNum)}"
+                            android:textColor="@color/black_primary"
+                            android:textSize="@dimen/font_normal"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/waiting"
+                            android:textColor="@color/black_secondary"
+                            android:textSize="@dimen/font_smaller"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/get_it"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:letterSpacing="0.025"
+                        android:minWidth="16dp"
+                        android:onClick="@{() -> viewmodel.setIsShowQuickView(false)}"
+                        android:paddingStart="@dimen/spacing_little"
+                        android:paddingEnd="@dimen/spacing_little"
+                        android:text="@string/got_it"
+                        android:visibility="@{viewmodel.displayGotIt ? View.VISIBLE : View.GONE}"
+                        android:textColor="@color/black_secondary"
+                        android:textSize="@dimen/font_small" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/check_today_event"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="@dimen/spacing_smaller"
+                        android:letterSpacing="0.025"
+                        android:paddingStart="@dimen/spacing_small"
+                        android:paddingEnd="@dimen/spacing_small"
+                        android:text="@string/quick_view_check_today"
+                        android:textColor="@color/yellow_800"
+                        android:textSize="@dimen/font_small" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

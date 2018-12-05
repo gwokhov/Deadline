@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.gwokhou.deadline.manageCategories.smart.SmartCategoriesViewModel"/>
+    </data>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".manageCategories.smart.SmartCategoriesFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:paddingStart="@dimen/spacing_normal"
+        android:paddingEnd="@dimen/spacing_normal">
+
+        <ImageView
+            android:layout_width="@dimen/icon_small"
+            android:layout_height="@dimen/icon_small"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:src="@drawable/ic_all_events" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/all_events"
+            android:textColor=" @color/black"
+            android:textSize="@dimen/font_normal" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:checked="@={viewModel.showAllEventsCategory}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:paddingStart="@dimen/spacing_normal"
+        android:paddingEnd="@dimen/spacing_normal">
+
+        <ImageView
+            android:layout_width="@dimen/icon_small"
+            android:layout_height="@dimen/icon_small"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/spacing_large"
+            android:src="@drawable/ic_today" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/today"
+            android:textColor=" @color/black"
+            android:textSize="@dimen/font_normal" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:checked="@={viewModel.showTodayEventsCategory}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:paddingStart="@dimen/spacing_normal"
+        android:paddingEnd="@dimen/spacing_normal">
+
+        <ImageView
+            android:layout_width="@dimen/icon_small"
+            android:layout_height="@dimen/icon_small"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:src="@drawable/ic_next_7_days" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/next_7_days"
+            android:textColor=" @color/black"
+            android:textSize="@dimen/font_normal" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:checked="@={viewModel.showNext7DaysEventsCategory}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:paddingStart="@dimen/spacing_normal"
+        android:paddingEnd="@dimen/spacing_normal">
+
+        <ImageView
+            android:layout_width="@dimen/icon_small"
+            android:layout_height="@dimen/icon_small"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:src="@drawable/ic_completed_events" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/completed"
+            android:textColor=" @color/black"
+            android:textSize="@dimen/font_normal" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:checked="@={viewModel.showCompletedEventsCategory}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+</LinearLayout>
+</layout>

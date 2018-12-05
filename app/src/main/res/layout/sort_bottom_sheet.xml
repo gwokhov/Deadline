@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.gwokhou.deadline.dataType.SortType" />
+
+        <variable
+            name="viewmodel"
+            type="com.gwokhou.deadline.events.EventsViewModel" />
+
+        <variable
+            name="listener"
+            type="com.gwokhou.deadline.sort.SortItemActionListener" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/spacing_smaller"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/sorting_option_title"
+                android:textColor="@color/black_secondary"
+                android:textSize="@dimen/font_normal" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:onClick="@{() -> listener.onSwitchedSortOrder(!viewmodel.isOrderAsc)}"
+                android:text="@{viewmodel.isOrderAsc ? @string/sorting_order_asc : @string/sorting_order_desc}"
+                android:textColor="@color/teal_600"
+                app:chipIcon="@drawable/ic_sort_swap"
+                app:chipIconTint="@color/teal_600" />
+        </LinearLayout>
+
+        <CheckedTextView
+            style="@style/ListItem"
+            android:checked="@{viewmodel.sortType == SortType.CREATION_DATE ? true : false}"
+            android:drawableStart="@drawable/ic_creation_date"
+            android:drawableEnd="@{viewmodel.sortType == SortType.CREATION_DATE ? @drawable/ic_done : null}"
+            android:drawablePadding="@dimen/spacing_large"
+            android:gravity="center_vertical"
+            android:onClick="@{() -> listener.onItemClicked(SortType.CREATION_DATE)}"
+            android:text="@string/sorting_option_creation_date"
+            android:textColor="@{viewmodel.sortType == SortType.CREATION_DATE ? @color/teal_600 : @color/black}"
+            android:textSize="@dimen/font_small"
+            app:typeface='@{viewmodel.sortType == SortType.CREATION_DATE ? "bold" : "normal"}' />
+
+        <CheckedTextView
+            style="@style/ListItem"
+            android:checked="@{viewmodel.sortType == SortType.PRIORITY ? true : false}"
+            android:drawableStart="@drawable/ic_stars"
+            android:drawableEnd="@{viewmodel.sortType == SortType.PRIORITY ? @drawable/ic_done : null}"
+            android:drawablePadding="@dimen/spacing_large"
+            android:gravity="center_vertical"
+            android:onClick="@{() -> listener.onItemClicked(SortType.PRIORITY)}"
+            android:text="@string/sorting_option_priority"
+            android:textColor="@{viewmodel.sortType == SortType.PRIORITY ? @color/teal_600 : @color/black}"
+            android:textSize="@dimen/font_small"
+            app:typeface='@{viewmodel.sortType == SortType.PRIORITY ? "bold" : "normal"}' />
+
+        <CheckedTextView
+            style="@style/ListItem"
+            android:checked="@{viewmodel.sortType == SortType.DUE_DATE ? true : false}"
+            android:drawableStart="@drawable/ic_hourglass_end"
+            android:drawableEnd="@{viewmodel.sortType == SortType.DUE_DATE ? @drawable/ic_done : null}"
+            android:drawablePadding="@dimen/spacing_large"
+            android:gravity="center_vertical"
+            android:onClick="@{() -> listener.onItemClicked(SortType.DUE_DATE)}"
+            android:text="@string/sorting_option_due_date"
+            android:textColor="@{viewmodel.sortType == SortType.DUE_DATE ? @color/teal_600 : @color/black}"
+            android:textSize="@dimen/font_small"
+            app:typeface='@{viewmodel.sortType == SortType.DUE_DATE ? "bold" : "normal"}' />
+
+        <CheckedTextView
+            style="@style/ListItem"
+            android:checked="@{viewmodel.sortType == SortType.ALPHA ? true : false}"
+            android:drawableStart="@drawable/ic_alpha"
+            android:drawableEnd="@{viewmodel.sortType == SortType.ALPHA ? @drawable/ic_done : null}"
+            android:drawablePadding="@dimen/spacing_large"
+            android:gravity="center_vertical"
+            android:onClick="@{() -> listener.onItemClicked(SortType.ALPHA)}"
+            android:text="@string/sorting_option_alphabetically"
+            android:textColor="@{viewmodel.sortType == SortType.ALPHA ? @color/teal_600 : @color/black}"
+            android:textSize="@dimen/font_small"
+            app:typeface='@{viewmodel.sortType == SortType.ALPHA ? "bold" : "normal"}' />
+
+    </LinearLayout>
+
+</layout>

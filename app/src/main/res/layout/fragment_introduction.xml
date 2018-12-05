@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fitsSystemWindows="true"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/intro_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:animateLayoutChanges="true"
+        android:paddingBottom="@dimen/spacing_normal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:gravity="center"
+        android:paddingStart="@dimen/spacing_normal"
+        android:paddingEnd="@dimen/spacing_normal">
+
+        <com.pixelcan.inkpageindicator.InkPageIndicator
+            android:id="@+id/page_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:importantForAccessibility="no"
+            app:ipi_currentPageIndicatorColor="@color/teal_700"
+            app:ipi_pageIndicatorColor="@color/yellow_600" />
+
+        <com.google.android.material.button.MaterialButton
+            android:visibility="invisible"
+            app:iconSize="18dp"
+            android:letterSpacing="0.025"
+            android:id="@+id/intro_start"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:backgroundTint="@color/teal_600"
+            android:text="@string/intro_start"
+            app:icon="@drawable/ic_start" />
+
+    </LinearLayout>
+
+</LinearLayout>

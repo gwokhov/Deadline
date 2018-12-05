@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/spacing_normal"
+    android:paddingTop="@dimen/spacing_big"
+    android:paddingEnd="@dimen/spacing_normal"
+    android:paddingBottom="@dimen/spacing_normal">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/spacing_small"
+        android:layout_marginEnd="@dimen/spacing_smaller"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:tint="@color/teal_600"
+                app:srcCompat="@drawable/ic_circle" />
+
+            <TextView
+                android:id="@+id/progress_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:textColor="@color/black_secondary"
+                android:textSize="@dimen/font_smaller" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_little"
+            android:gravity="center_vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:tint="@color/yellow_600"
+                app:srcCompat="@drawable/ic_circle" />
+
+            <TextView
+                android:id="@+id/progress_week"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:textColor="@color/black_secondary"
+                android:textSize="@dimen/font_smaller" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_little"
+            android:gravity="center_vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:tint="@color/red_700"
+                app:srcCompat="@drawable/ic_circle" />
+
+            <TextView
+                android:id="@+id/progress_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:textColor="@color/black_secondary"
+                android:textSize="@dimen/font_smaller" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_little"
+            android:gravity="center_vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:tint="#2196F3"
+                app:srcCompat="@drawable/ic_circle" />
+
+            <TextView
+                android:id="@+id/progress_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:textColor="@color/black_secondary"
+                android:textSize="@dimen/font_smaller" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <devlight.io.library.ArcProgressStackView
+        android:id="@+id/progress_date_arc"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_gravity="end"
+        app:apsv_animated="true"
+        app:apsv_animation_duration="1000"
+        app:apsv_draw_width="80%"
+        app:apsv_interpolator="@android:interpolator/anticipate_overshoot"
+        app:apsv_model_bg_enabled="true"
+        app:apsv_model_offset="-1dp"
+        app:apsv_rounded="true"
+        app:apsv_shadowed="false"
+        app:apsv_text_color="@color/white" />
+
+</LinearLayout>

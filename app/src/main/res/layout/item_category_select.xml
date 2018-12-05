@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/selectable_category_item"
+    style="@style/ListItem"
+    android:gravity="center_vertical"
+    android:textSize="@dimen/font_normal" />

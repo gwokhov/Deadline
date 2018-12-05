@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.gwokhou.deadline.util.DateTimeUtils" />
+
+        <variable
+            name="viewmodel"
+            type="com.gwokhou.deadline.editEvent.EditViewModel" />
+
+        <variable
+            name="listener"
+            type="com.gwokhou.deadline.editEvent.EditActionListener" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/appbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="false"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+                app:titleEnabled="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="64dp"
+                        android:gravity="center_vertical">
+
+                        <CheckBox
+                            android:id="@+id/task_checkbox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/spacing_huge"
+                            android:layout_marginStart="@dimen/spacing_normal"
+                            android:button="@drawable/custom_checkbox"
+                            android:checked="@={viewmodel.isCompleted}"
+                            android:onClick="@{() -> listener.onCheckBoxClicked()}"
+                            android:visibility="@{viewmodel.isNewTask ? View.INVISIBLE : View.VISIBLE}" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/spacing_normal"
+                            android:layout_marginRight="@dimen/spacing_normal"
+                            android:focusable="true"
+                            android:hint="@string/event_title"
+                            android:textColorHint="@color/white_negative"
+                            app:boxBackgroundColor="@color/white_lighter"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="@string/event_title_max_length"
+                            app:counterTextAppearance="@style/CounterTextAppearance">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/title_edit"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/white"
+                                android:drawableStart="@drawable/ic_title"
+                                android:drawablePadding="@dimen/spacing_normal"
+                                android:enabled="@{!viewmodel.isCompleted}"
+                                android:maxLength="@string/event_title_max_length"
+                                android:maxLines="2"
+                                android:singleLine="false"
+                                android:text="@={viewmodel.title}"
+                                android:textColor="@drawable/custom_edit_text_color"
+                                android:textSize="20sp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="56dp"
+                        android:layout_marginEnd="@dimen/spacing_normal"
+                        android:layout_marginBottom="@dimen/spacing_big"
+                        android:hint="@string/event_notes"
+                        android:textColorHint="@color/white_negative"
+                        app:boxBackgroundColor="@android:color/transparent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/note_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/white"
+                            android:drawableStart="@drawable/ic_notes"
+                            android:drawablePadding="@dimen/spacing_normal"
+                            android:enabled="@{!viewmodel.isCompleted}"
+                            android:text="@={viewmodel.note}"
+                            android:textColor="@drawable/custom_edit_text_color"
+                            android:textSize="@dimen/font_normal" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/edit_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:fitsSystemWindows="false"
+                    app:layout_collapseMode="pin"
+                    app:navigationIcon="@drawable/ic_close" />
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:paddingEnd="@dimen/spacing_normal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/spacing_normal"
+                            android:layout_marginEnd="@dimen/spacing_large"
+                            app:srcCompat="@drawable/ic_durable_event" />
+
+                        <TextView
+                            android:enabled="@{!viewmodel.isCompleted}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:text="@string/durable_event"
+                            android:textColor="@color/primary_text_color"
+                            android:textSize="@dimen/font_normal" />
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/type_tips"
+                            android:layout_width="56dp"
+                            android:layout_height="match_parent"
+                            android:background="?selectableItemBackgroundBorderless"
+                            android:onClick="@{() -> listener.onTipsClicked()}"
+                            android:src="@drawable/ic_help" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:checked="@={viewmodel.isDurableEvent}"
+                        android:enabled="@{!viewmodel.isCompleted}" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?android:selectableItemBackground"
+                    android:enabled="@{!viewmodel.isCompleted}"
+                    android:onClick="@{() -> listener.onStartDateClicked()}"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_normal"
+                    android:visibility="@{viewmodel.isDurableEvent ? View.VISIBLE : View.GONE}">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_small"
+                        android:layout_height="@dimen/icon_small"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/spacing_large"
+                        app:srcCompat="@drawable/ic_hourglass_start" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:enabled="@{!viewmodel.isCompleted}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/event_start_date"
+                            android:textColor="@color/primary_text_color"
+                            android:textSize="@dimen/font_normal" />
+
+                        <TextView
+                            android:enabled="@{!viewmodel.isCompleted}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{DateTimeUtils.longToString(viewmodel.startDate, DateTimeUtils.MEDIUM)}"
+                            android:textColor="@color/secondary_text_color"
+                            android:textSize="@dimen/font_small" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?android:selectableItemBackground"
+                    android:enabled="@{!viewmodel.isCompleted}"
+                    android:onClick="@{() -> listener.onDueDateClicked()}"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_normal">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_small"
+                        android:layout_height="@dimen/icon_small"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/spacing_large"
+                        app:srcCompat="@drawable/ic_hourglass_end" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:enabled="@{!viewmodel.isCompleted}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/event_date"
+                            android:textColor="@color/primary_text_color"
+                            android:textSize="@dimen/font_normal" />
+
+                        <TextView
+                            android:enabled="@{!viewmodel.isCompleted}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewmodel.dueDate == 0 ? @string/task_unselected : DateTimeUtils.longToString(viewmodel.dueDate, DateTimeUtils.MEDIUM)}"
+                            android:textColor="@color/secondary_text_color"
+                            android:textSize="@dimen/font_small" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View style="@style/Divider" />
+
+                <TextView
+                    style="@style/ListSubTitle"
+                    android:text="@string/advance" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?android:selectableItemBackground"
+                    android:enabled="@{!viewmodel.isCompleted}"
+                    android:onClick="@{() -> listener.onCategoryClicked()}"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_normal">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_small"
+                        android:layout_height="@dimen/icon_small"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/spacing_large"
+                        app:srcCompat="@drawable/ic_category" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:enabled="@{!viewmodel.isCompleted}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/event_category"
+                            android:textColor="@color/primary_text_color"
+                            android:textSize="@dimen/font_normal" />
+
+                        <TextView
+                            android:enabled="@{!viewmodel.isCompleted}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text='@{viewmodel.category.equals("Inbox") ? @string/inbox : viewmodel.category}'
+                            android:textColor="@color/secondary_text_color"
+                            android:textSize="@dimen/font_small" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?android:selectableItemBackground"
+                    android:enabled="@{!viewmodel.isCompleted}"
+                    android:onClick="@{() -> listener.onPriorityClicked()}"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_normal">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_small"
+                        android:layout_height="@dimen/icon_small"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/spacing_large"
+                        app:srcCompat="@drawable/ic_stars" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:enabled="@{!viewmodel.isCompleted}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/event_priority"
+                            android:textColor="@color/primary_text_color"
+                            android:textSize="@dimen/font_normal" />
+
+                        <TextView
+                            android:enabled="@{!viewmodel.isCompleted}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewmodel.getPriorityDesc(viewmodel.priority)}"
+                            android:textColor="@color/secondary_text_color"
+                            android:textSize="@dimen/font_small" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?android:selectableItemBackground"
+                    android:enabled="@{!viewmodel.isCompleted}"
+                    android:onClick="@{() -> listener.onReminderClicked()}"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_normal">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_small"
+                        android:layout_height="@dimen/icon_small"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/spacing_large"
+                        app:srcCompat="@drawable/ic_reminder" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:enabled="@{!viewmodel.isCompleted}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/event_reminder"
+                            android:textColor="@color/primary_text_color"
+                            android:textSize="@dimen/font_normal" />
+
+                        <TextView
+                            android:enabled="@{!viewmodel.isCompleted}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewmodel.getReminderDesc(viewmodel.reminder)}"
+                            android:textColor="@color/secondary_text_color"
+                            android:textSize="@dimen/font_small" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="@dimen/fab_margin"
+            android:onClick="@{() -> listener.onFabClicked()}"
+            app:backgroundTint="@color/yellow_600"
+            app:rippleColor="@color/teal_700"
+            app:srcCompat="@drawable/ic_done" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

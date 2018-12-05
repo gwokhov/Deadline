@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="date_progress_fg">
+        <item>#00897B</item>
+        <item>#FDD835</item>
+        <item>#D32F2F</item>
+        <item>#2196F3</item>
+    </string-array>
+
+    <string-array name="date_progress_bg">
+        <item>#1400796B</item>
+        <item>#0F00796B</item>
+        <item>#0A00796B</item>
+        <item>#0500796B</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_sort"
+        android:name="@string/sort"
+        android:icon="@drawable/ic_sort"
+        android:title="@string/sort"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_is_show_completed_events"
+        android:name="@string/hide_completed_events"
+        android:icon="@drawable/ic_hide_show_completed_events"
+        android:title="@string/hide_completed_events"
+        app:showAsAction="never" />
+
+</menu>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.gwokhou.deadline.dataType.RemindType" />
+
+        <import type="androidx.databinding.ObservableArrayMap" />
+
+        <variable
+            name="viewmodel"
+            type="com.gwokhou.deadline.reminderSelect.ReminderDialogViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/spacing_normal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:orientation="vertical">
+
+            <View style="@style/Divider" />
+
+            <TextView
+                style="@style/ListSubTitle"
+                android:paddingStart="@dimen/spacing_big"
+                android:text="@string/single_remind" />
+
+            <CheckedTextView
+                android:id="@+id/single_remind_none"
+                style="@style/ListItem"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:checked='@{viewmodel.remindSelections[RemindType.NONE_REMIND]}'
+                android:drawableEnd="@{viewmodel.remindSelections[RemindType.NONE_REMIND]? @drawable/ic_done : null}"
+                android:gravity="center_vertical"
+                android:onClick="@{()->viewmodel.updateSelections(RemindType.NONE_REMIND)}"
+                android:text="@string/single_remind_none"
+                android:textColor="@color/teal_700"
+                android:textSize="@dimen/font_normal"
+                app:typeface='@{viewmodel.remindSelections[RemindType.NONE_REMIND]? "bold" : "normal"}' />
+
+            <CheckedTextView
+                style="@style/ListItem"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:checked='@{viewmodel.remindSelections[RemindType.SINGLE_DUE_DATE]}'
+                android:drawableEnd="@{viewmodel.remindSelections[RemindType.SINGLE_DUE_DATE]? @drawable/ic_done : null}"
+                android:gravity="center_vertical"
+                android:onClick="@{()->viewmodel.updateSelections(RemindType.SINGLE_DUE_DATE)}"
+                android:text="@string/single_remind_at_due_date"
+                android:textColor="@color/teal_700"
+                android:textSize="@dimen/font_normal"
+                app:typeface='@{viewmodel.remindSelections[RemindType.SINGLE_DUE_DATE]? "bold" : "normal"}' />
+
+            <RelativeLayout
+                style="@style/ListItem"
+                android:layout_height="46dp"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:background="@{viewmodel.remindSelections[RemindType.SINGLE_REMIND] ? @drawable/custom_selected_item_bg : @drawable/custom_ripple}"
+                android:checked="true"
+                android:onClick="@{()->viewmodel.updateSelections(RemindType.SINGLE_REMIND)}"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/remind_interval"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:onClick="@{()->viewmodel.updateSelections(RemindType.SINGLE_REMIND)}"
+                    android:singleLine="true"
+                    android:text="@={viewmodel.singleRemindInterval}"
+                    android:textColor="@color/teal_700"
+                    android:textSize="@dimen/font_normal"
+                    tools:text="15" />
+
+                <TextView
+                    android:id="@+id/remind_interval_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/remind_interval"
+                    android:background="@drawable/custom_ripple"
+                    android:clickable="true"
+                    android:drawableEnd="@drawable/ic_drop_down"
+                    android:drawablePadding="@dimen/spacing_tiny"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/spacing_smaller"
+                    android:paddingEnd="@dimen/spacing_smaller"
+                    android:text="@{viewmodel.getRemindUnitString(viewmodel.singleRemindUnit.get()) + @string/before}"
+                    android:textColor="@color/teal_700"
+                    android:textSize="@dimen/font_normal"
+                    app:typeface='@{viewmodel.remindSelections[RemindType.SINGLE_REMIND]? "bold" : "normal"}'
+                    tools:text="Hours Before" />
+
+                <ImageView
+                    android:id="@+id/single_remind_marker"
+                    android:layout_width="@dimen/icon_small"
+                    android:layout_height="@dimen/icon_small"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:visibility="@{viewmodel.remindSelections[RemindType.SINGLE_REMIND] ? View.VISIBLE : View.GONE}"
+                    app:srcCompat="@drawable/ic_done" />
+
+            </RelativeLayout>
+
+            <View
+                style="@style/Divider"
+                android:layout_marginStart="@dimen/spacing_big"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_big" />
+
+            <TextView
+                style="@style/ListSubTitle"
+                android:paddingStart="@dimen/spacing_big"
+                android:text="@string/repeated_remind" />
+
+            <CheckedTextView
+                android:id="@+id/repeated_remind_everyday"
+                style="@style/ListItem"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:checked="@{viewmodel.remindSelections[RemindType.REPEATED_EVERYDAY]}"
+                android:drawableEnd="@{viewmodel.remindSelections[RemindType.REPEATED_EVERYDAY] ? @drawable/ic_done : null}"
+                android:gravity="center_vertical"
+                android:onClick="@{()->viewmodel.updateSelections(RemindType.REPEATED_EVERYDAY)}"
+                android:text="@string/repeated_remind_everyday"
+                android:textColor="@color/teal_700"
+                android:textSize="@dimen/font_normal"
+                app:typeface='@{viewmodel.remindSelections[RemindType.REPEATED_EVERYDAY]? "bold" : "normal"}' />
+
+            <!--<CheckedTextView-->
+                <!--android:id="@+id/repeated_remind_always"-->
+                <!--style="@style/ListItem"-->
+                <!--android:layout_marginStart="@dimen/spacing_normal"-->
+                <!--android:layout_marginEnd="@dimen/spacing_normal"-->
+                <!--android:checked="@{viewmodel.remindSelections[RemindType.REPEATED_ALWAYS]}"-->
+                <!--android:drawableEnd="@{viewmodel.remindSelections[RemindType.REPEATED_ALWAYS] ? @drawable/ic_done : null}"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:onClick="@{()->viewmodel.updateSelections(RemindType.REPEATED_ALWAYS)}"-->
+                <!--android:text="@string/repeated_remind_always"-->
+                <!--android:textColor="@color/teal_700"-->
+                <!--android:textSize="@dimen/font_normal"-->
+                <!--app:typeface='@{viewmodel.remindSelections[RemindType.REPEATED_ALWAYS]? "bold" : "normal"}' />-->
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

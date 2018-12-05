@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ListItem">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/drawer_item_icon"
+        android:layout_width="@dimen/icon_small"
+        android:layout_height="@dimen/icon_small"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="@dimen/spacing_large" />
+
+    <TextView
+        android:id="@+id/drawer_item_name"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_small" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/drawer_item_count"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:textColor="@color/black_negative"
+        android:textStyle="bold"
+        app:chipBackgroundColor="@color/teal_50" />
+
+</LinearLayout>
