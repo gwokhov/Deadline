@@ -1,9 +1,9 @@
 # Deadline
 ![icon](https://github.com/Gwokhov/Deadline/blob/master/pic/ic.png)
 
-A simple TODO with countdown timer
+A simple TODO with countdown timer, and also a experimental application with Android Jetpack.
 
-一款简洁的结合倒计时钟特性的Todo工具
+一款简洁的结合倒计时钟特性的Todo工具，并且是一个使用Android Jetpack的实验性应用。
 
 ## Features:
 - Support for classifying events.
@@ -24,3 +24,11 @@ A simple TODO with countdown timer
 ## Preview/预览:
 ![preview_1](https://github.com/Gwokhov/Deadline/blob/master/pic/preview_1.jpg)
 ![preview_2](https://github.com/Gwokhov/Deadline/blob/master/pic/preview_2.jpg)
+
+## Android Jetpack Libraries
+- Data Binding - Declaratively bind observable data to UI elements.
+- Lifecycles - Create a UI that automatically responds to lifecycle events.
+- LiveData - Build data objects that notify views when the underlying database changes.
+- Navigation - Handle everything needed for in-app navigation.
+- Room - Access your app's SQLite database with in-app objects and compile-time checks.
+- ViewModel - Store UI-related data that isn't destroyed on app rotations. Easily schedule asynchronous tasks for optimal execution.
