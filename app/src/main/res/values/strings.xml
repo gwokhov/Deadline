@@ -1,7 +1,7 @@
 <resources>
     <!--Common-->
-    <string name="app_name">Deadline</string>
-    <string name="app_version">Ver: 1.0 beta03</string>
+    <string name="app_name" translatable="false">Deadline</string>
+    <string name="app_version" translatable="false">Ver: 1.0 beta04</string>
     <string name="gone">Gone</string>
     <string name="ongoing">Ongoing</string>
     <string name="waiting">Waiting</string>
@@ -193,6 +193,7 @@
     <string name="support_developer">Support Developer</string>
     <string name="rate_this_app">Rate this app</string>
     <string name="donate">Donate (Alipay)</string>
+    <string name="no_email_client">No Email client detected</string>
     <string name="no_alipay_client">No Alipay client detected</string>
     <string name="failed_to_open_app_store">Failed to open app store</string>
     <string name="developer_intro">Developer of Deadline</string>

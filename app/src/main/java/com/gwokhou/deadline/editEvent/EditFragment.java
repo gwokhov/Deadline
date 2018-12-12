@@ -134,7 +134,7 @@ public class EditFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if (!getArguments().isEmpty()) {
+        if (getArguments() != null && !getArguments().isEmpty()) {
             inflater.inflate(R.menu.menu_edit, menu);
         }
     }
@@ -174,7 +174,7 @@ public class EditFragment extends Fragment {
     }
 
     private void loadData() {
-        if (!getArguments().isEmpty()) {
+        if (getArguments() != null && !getArguments().isEmpty()) {
             mViewModel.loadData(getArguments().getString(ARG_EDIT_EVENT_ID));
         } else {
             mViewModel.loadData(null);

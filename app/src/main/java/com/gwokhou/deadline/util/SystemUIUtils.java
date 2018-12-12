@@ -18,6 +18,9 @@ public class SystemUIUtils {
     public static void setupActionBar(Activity activity, boolean isLightBar, int bgColorRes, int bgColorRes2, int titleRes, Toolbar toolbar) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             activity.getWindow().setStatusBarColor(activity.getResources().getColor(bgColorRes2));
+            if (!isLightBar) {
+                toolbar.setTitleTextColor(activity.getResources().getColor(R.color.white));
+            }
         } else {
             activity.getWindow().setStatusBarColor(activity.getResources().getColor(bgColorRes, null));
             if (isLightBar) {

@@ -49,7 +49,7 @@ public class IntroFragment extends Fragment {
 
     private void setupSystemUI() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.teal_300));
+            getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.teal_200));
         } else {
             getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.white, null));
             getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);

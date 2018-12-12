@@ -1,7 +1,5 @@
 <resources>
     <!--Common-->
-    <string name="app_name">Deadline</string>
-    <string name="app_version">Ver: 1.0 beta03</string>
     <string name="gone">过去</string>
     <string name="ongoing">进行</string>
     <string name="waiting">等待</string>
@@ -184,6 +182,7 @@
     <string name="support_developer">支持开发者</string>
     <string name="rate_this_app">评价一下Deadline</string>
     <string name="donate">捐赠</string>
+    <string name="no_email_client">检测不到邮箱客户端</string>
     <string name="no_alipay_client">检测不到支付宝客户端</string>
     <string name="failed_to_open_app_store">打开应用商店失败</string>
     <string name="developer_intro">Deadline的开发者</string>
