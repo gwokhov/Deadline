@@ -17,7 +17,7 @@
     <string name="delete">刪除</string>
     <string name="save">儲存</string>
     <string name="durable_event">持續事件</string>
-    <string name="add_category">添加分類</string>
+    <string name="add_category">新增分類</string>
 
 
     <!--Event Item-->
@@ -186,7 +186,6 @@
     <string name="no_alipay_client">檢測不到支付寶客戶端</string>
     <string name="failed_to_open_app_store">打開商店失敗</string>
     <string name="developer_intro">Deadline的開發者</string>
-    <!-- <string name="developer_name" translatable="false">Gwokhou</string> -->
 
 
     <!--Introduction Fragment-->
@@ -223,7 +222,7 @@
         <item>總是顯示</item>
     </string-array>
     <string name="quick_view_show_every_time">每次打開時顯示</string>
-    <string name="quick_view_show_once_per_day">Show only once per day</string>
+    <string name="quick_view_show_once_per_day">每天只顯示一次</string>
     <string name="quick_view_sticky">總是顯示</string>
 
 
