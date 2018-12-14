@@ -16,7 +16,7 @@
     <string name="about">关于</string>
     <string name="delete">删除</string>
     <string name="save">保存</string>
-    <string name="durable_event">持续时间</string>
+    <string name="durable_event">持续事件</string>
     <string name="add_category">添加分类</string>
 
 
