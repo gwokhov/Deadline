@@ -1,7 +1,7 @@
 <resources>
     <!--Common-->
     <string name="app_name" translatable="false">Deadline</string>
-    <string name="app_version" translatable="false">Ver: 1.0 beta04</string>
+    <string name="app_version" translatable="false">Ver: 1.0 beta05</string>
     <string name="gone">Gone</string>
     <string name="ongoing">Ongoing</string>
     <string name="waiting">Waiting</string>
