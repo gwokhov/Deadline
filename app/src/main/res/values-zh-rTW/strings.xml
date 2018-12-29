@@ -38,8 +38,8 @@
     <string name="chip_inbox">收集箱</string>
     <string name="chip_sort_alpha">按字母&#160;</string>
     <string name="chip_sort_due_date">按截止日期&#160;</string>
-    <string name="chip_sort_priority">按優先度分類&#160;</string>
-    <string name="chip_sort_creation_date">按建立日期分類&#160;</string>
+    <string name="chip_sort_priority">按優先度&#160;</string>
+    <string name="chip_sort_creation_date">按建立日期&#160;</string>
     <string name="chip_sort_order_asc">(正序)</string>
     <string name="chip_sort_order_desc">(倒序)</string>
 
