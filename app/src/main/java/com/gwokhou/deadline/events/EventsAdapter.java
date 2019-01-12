@@ -84,8 +84,10 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
             mEvent = event;
             mTitle.setText(mEvent.getTitle());
             mDueDate.setText(DateTimeUtils.longToString(mEvent.getEndDate(), DateTimeUtils.DATE));
+            setPriority();
 
             if (mEvent.isDurableEvent()) {
+                mState.setVisibility(View.VISIBLE);
                 refreshState(mEvent.getState());
             } else {
                 mState.setVisibility(View.INVISIBLE);
@@ -122,13 +124,19 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
             if (state == StateType.COMPLETED) {
                 onCompleted();
             } else {
+                activeEvent();
                 mMarker.setMarker(mContext.getDrawable(R.drawable.ic_circle));
-                mTimerState.setVisibility(View.GONE);
-                mSlideIcon.setImageResource(R.drawable.ic_done);
                 if (mEvent.getEndDate() - System.currentTimeMillis() <= 0) {
                     mTimer.start(System.currentTimeMillis() - mEvent.getEndDate());
+                    DynamicConfig.Builder dynamicConfigBuilder = new DynamicConfig.Builder();
+                    dynamicConfigBuilder.setShowSecond(false);
+                    dynamicConfigBuilder.setShowMinute(false);
+                    mTimer.dynamicShow(dynamicConfigBuilder.build());
+                    mTimerState.setText(R.string.timer_state_passed);
                 } else {
                     mTimer.start(mEvent.getEndDate() - System.currentTimeMillis());
+                    toTealTheme();
+                    mTimerState.setText(R.string.timer_state_to_reach);
                 }
             }
 
@@ -137,8 +145,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
         private void onCompleted() {
             mTitle.setTextColor(mContext.getResources().getColor(R.color.black_negative));
             mTitle.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG);
-
-            setPriority();
 
             mProgress.setVisibility(View.GONE);
             mState.setText(mContext.getResources().getText(R.string.done));
@@ -156,26 +162,11 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
         }
 
         private void onStateOngoing(long remain, final long total) {
-            mTitle.setTextColor(mContext.getResources().getColor(R.color.white));
-            mTitle.getPaint().setFlags(Paint.ANTI_ALIAS_FLAG);
-
-            setPriority();
-
+            activeEvent();
+            toTealTheme();
             mProgress.setVisibility(View.VISIBLE);
-            mDueDate.setTextColor(mContext.getResources().getColor(R.color.yellow_300));
-            mDueDate.setPadding(0, 0, 0, 0);
             mMarker.setMarker(mContext.getDrawable(R.drawable.ic_ongoing));
-            mCard.setCardBackgroundColor(mContext.getResources().getColor(R.color.teal_700));
-            mSlideIcon.setImageResource(R.drawable.ic_done);
-
-            mTimerContainer.setVisibility(View.VISIBLE);
             mTimerState.setText(R.string.timer_state_to_end);
-            mTimerState.setTextColor(mContext.getResources().getColor(R.color.white_secondary));
-            DynamicConfig.Builder dynamicConfigBuilder = new DynamicConfig.Builder();
-            dynamicConfigBuilder
-                    .setTimeTextColor(mContext.getResources().getColor(R.color.white_secondary))
-                    .setSuffixTextColor(mContext.getResources().getColor(R.color.white_secondary));
-            mTimer.dynamicShow(dynamicConfigBuilder.build());
             mTimer.start(remain);
 
             mTimer.setTimerUpdateListener(new TimerUpdateListener() {
@@ -201,8 +192,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
             mTitle.setTextColor(mContext.getResources().getColor(R.color.white));
             mTitle.getPaint().setFlags(Paint.ANTI_ALIAS_FLAG);
 
-            setPriority();
-
             mState.setText(mContext.getResources().getText(R.string.gone));
             mProgress.setVisibility(View.GONE);
             mDueDate.setTextColor(mContext.getResources().getColor(R.color.white));
@@ -214,25 +203,20 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
             mMarker.setMarker(mContext.getDrawable(R.drawable.ic_gone));
             mTimerContainer.setVisibility(View.GONE);
             mTimer.stop();
-            mCard.setCardBackgroundColor(mContext.getResources().getColor(R.color.red_900));
+            mCard.setCardBackgroundColor(mContext.getResources().getColor(R.color.red_700));
             mSlideIcon.setImageResource(R.drawable.ic_done);
         }
 
         private void onStateWaiting(long duration) {
+            activeEvent();
             mTitle.setTextColor(mContext.getResources().getColor(R.color.black_negative));
-            mTitle.getPaint().setFlags(Paint.ANTI_ALIAS_FLAG);
-
-            setPriority();
 
             mState.setText(mContext.getResources().getText(R.string.waiting));
             mDueDate.setTextColor(mContext.getResources().getColor(R.color.black_secondary));
-            mDueDate.setPadding(0, 0, 0, 0);
             mProgress.setVisibility(View.GONE);
             mMarker.setMarker(mContext.getDrawable(R.drawable.ic_waiting));
             mCard.setCardBackgroundColor(mContext.getResources().getColor(R.color.gray));
-            mSlideIcon.setImageResource(R.drawable.ic_done);
 
-            mTimerContainer.setVisibility(View.VISIBLE);
             mTimerState.setText(R.string.timer_state_to_start);
             mTimerState.setTextColor(mContext.getResources().getColor(R.color.black_a70));
             DynamicConfig.Builder dynamicConfigBuilder = new DynamicConfig.Builder();
@@ -272,6 +256,25 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
                     mPriority.setVisibility(View.GONE);
             }
         }
+
+        private void activeEvent() {
+            mTitle.getPaint().setFlags(Paint.ANTI_ALIAS_FLAG);
+            mDueDate.setPadding(0, 0, 0, 0);
+            mSlideIcon.setImageResource(R.drawable.ic_done);
+            mTimerContainer.setVisibility(View.VISIBLE);
+        }
+
+        private void toTealTheme() {
+            mTitle.setTextColor(mContext.getResources().getColor(R.color.white));
+            mDueDate.setTextColor(mContext.getResources().getColor(R.color.yellow_300));
+            mCard.setCardBackgroundColor(mContext.getResources().getColor(R.color.teal_700));
+            mTimerState.setTextColor(mContext.getResources().getColor(R.color.white_secondary));
+            DynamicConfig.Builder dynamicConfigBuilder = new DynamicConfig.Builder();
+            dynamicConfigBuilder
+                    .setTimeTextColor(mContext.getResources().getColor(R.color.white_secondary))
+                    .setSuffixTextColor(mContext.getResources().getColor(R.color.white_secondary));
+            mTimer.dynamicShow(dynamicConfigBuilder.build());
+        }
     }
 
     EventsAdapter(Context context, EventsViewModel viewModel) {
@@ -298,7 +301,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
                     @Override
                     public void onClick(View view) {
                         mEventItemActionListener.onItemClicked(current.getId());
-//                        holder.mDetail.setVisibility(View.VISIBLE);
                     }
                 });
             }

@@ -43,6 +43,8 @@ public class EventsViewModel extends AndroidViewModel {
 
     List<Category> categoryItems = new ArrayList<>();
 
+    public MutableLiveData<Boolean> isListEmpty = new MutableLiveData<>();
+
     public MutableLiveData<Integer> sortType = new MutableLiveData<>();
     public LiveData<String> sortDesc = Transformations.map(sortType, new Function<Integer, String>() {
         @Override
@@ -64,8 +66,6 @@ public class EventsViewModel extends AndroidViewModel {
     public MutableLiveData<Boolean> isShowQuickView = new MutableLiveData<>();
 
     public MutableLiveData<Boolean> displayGotIt = new MutableLiveData<>();
-
-    public MutableLiveData<Boolean> isListEmpty = new MutableLiveData<>();
 
     public MutableLiveData<Boolean> isOrderAsc = new MutableLiveData<>();
 

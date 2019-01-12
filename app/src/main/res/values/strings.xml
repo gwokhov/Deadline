@@ -27,7 +27,8 @@
     <string name="done">Done</string>
     <string name="timer_state_to_start">to Start</string>
     <string name="timer_state_to_end">to End</string>
-
+    <string name="timer_state_to_reach">to Reach</string>
+    <string name="timer_state_passed">Passed</string>
 
     <!--Events Fragment-->
     <string name="nothing_in_hourglass">There is nothing in the hourglass……</string>
@@ -84,10 +85,10 @@
 
 
     <!--Events Drawer-->
-    <string name="progress_year_summary">%1$s: %2$1.0f%%</string>
-    <string name="progress_month_summary">%1$s: %2$1.0f%%</string>
-    <string name="progress_week_summary">This week: %1$1.0f%%</string>
-    <string name="progress_today_summary">%1$s has passed %2$1.0f%%</string>
+    <string name="progress_year_summary">%1$s: %2$1d%%</string>
+    <string name="progress_month_summary">%1$s: %2$1d%%</string>
+    <string name="progress_week_summary">This week: %1$1d%%</string>
+    <string name="progress_today_summary">%1$s has passed %2$1d%%</string>
     <string name="all_events">All Events</string>
     <string name="today">Today</string>
     <string name="next_7_days">Next 7 Days</string>

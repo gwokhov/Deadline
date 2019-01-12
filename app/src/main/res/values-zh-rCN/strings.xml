@@ -25,7 +25,8 @@
     <string name="done">完成</string>
     <string name="timer_state_to_start">后开始</string>
     <string name="timer_state_to_end">后结束</string>
-
+    <string name="timer_state_to_reach">后到来</string>
+    <string name="timer_state_passed">过去了</string>
 
     <!--Events Fragment-->
     <string name="nothing_in_hourglass">沙漏里空空如也……</string>

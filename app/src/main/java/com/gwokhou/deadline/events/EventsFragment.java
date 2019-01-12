@@ -285,10 +285,10 @@ public class EventsFragment extends Fragment {
         String[] fgColors = getResources().getStringArray(R.array.date_progress_fg);
         String[] bgColors = getResources().getStringArray(R.array.date_progress_bg);
 
-        float todayProgress = DateTimeUtils.getTodayProgress();
-        float weekProgress = DateTimeUtils.getDayOfWeekProgress(AppPreferences.isMondayTheFirstDay(getContext()));
-        float monthProgress = DateTimeUtils.getMonthProgress();
-        float yearProgress = DateTimeUtils.getYearProgress();
+        int todayProgress = (int) DateTimeUtils.getTodayProgress();
+        int weekProgress = (int) DateTimeUtils.getDayOfWeekProgress(AppPreferences.isMondayTheFirstDay(getContext()));
+        int monthProgress = (int) DateTimeUtils.getMonthProgress();
+        int yearProgress = (int) DateTimeUtils.getYearProgress();
 
         ArrayList<ArcProgressStackView.Model> dateModels = new ArrayList<>();
         dateModels.add(new ArcProgressStackView.Model(getString(R.string.day), todayProgress, Color.parseColor(bgColors[0]), Color.parseColor(fgColors[0])));
