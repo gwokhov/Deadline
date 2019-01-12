@@ -53,20 +53,18 @@ public class EditFragment extends Fragment {
 
     private EditViewModel mViewModel;
 
-    private FragmentEditBinding mBinding;
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.fragment_edit, container, false);
         mViewModel = ViewModelProviders.of(this).get(EditViewModel.class);
-        mBinding = FragmentEditBinding.bind(view);
-        mBinding.setViewmodel(mViewModel);
-        mBinding.setLifecycleOwner(this);
+        FragmentEditBinding binding = FragmentEditBinding.bind(view);
+        binding.setViewmodel(mViewModel);
+        binding.setLifecycleOwner(this);
 
         EditActionListener actionListener = getEditActionListener();
-        mBinding.setListener(actionListener);
+        binding.setListener(actionListener);
 
         return view;
     }
@@ -130,7 +128,6 @@ public class EditFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         setupSystemUI();
         setupSnackbar();
-        fixEditTextHint();
         loadData();
         checkIfCompleted();
     }
@@ -168,11 +165,6 @@ public class EditFragment extends Fragment {
     private void setupSystemUI() {
         Toolbar toolbar = getView().findViewById(R.id.edit_toolbar);
         SystemUIUtils.setupActionBar(getActivity(), false, R.color.teal_700, R.color.teal_700, R.string.edit, toolbar);
-    }
-
-    private void fixEditTextHint() {
-        mBinding.titleEdit.setHint("");
-        mBinding.noteEdit.setHint("");
     }
 
     private void setupFab() {

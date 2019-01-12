@@ -128,10 +128,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
                 mMarker.setMarker(mContext.getDrawable(R.drawable.ic_circle));
                 if (mEvent.getEndDate() - System.currentTimeMillis() <= 0) {
                     mTimer.start(System.currentTimeMillis() - mEvent.getEndDate());
-                    DynamicConfig.Builder dynamicConfigBuilder = new DynamicConfig.Builder();
-                    dynamicConfigBuilder.setShowSecond(false);
-                    dynamicConfigBuilder.setShowMinute(false);
-                    mTimer.dynamicShow(dynamicConfigBuilder.build());
+                    toRedTheme();
                     mTimerState.setText(R.string.timer_state_passed);
                 } else {
                     mTimer.start(mEvent.getEndDate() - System.currentTimeMillis());
@@ -148,6 +145,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
 
             mProgress.setVisibility(View.GONE);
             mState.setText(mContext.getResources().getText(R.string.done));
+            mState.setVisibility(View.VISIBLE);
             mDueDate.setTextColor(mContext.getResources().getColor(R.color.teal_600));
             if (mEvent.getPriority() != PriorityType.NONE) {
                 mDueDate.setPadding(0, 0, 48, 0);
@@ -189,22 +187,16 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
         }
 
         private void onStateGone() {
-            mTitle.setTextColor(mContext.getResources().getColor(R.color.white));
-            mTitle.getPaint().setFlags(Paint.ANTI_ALIAS_FLAG);
+            activeEvent();
+            toRedTheme();
 
             mState.setText(mContext.getResources().getText(R.string.gone));
             mProgress.setVisibility(View.GONE);
-            mDueDate.setTextColor(mContext.getResources().getColor(R.color.white));
-            if (mEvent.getPriority() != PriorityType.NONE) {
-                mDueDate.setPadding(0, 0, 48, 0);
-            } else {
-                mDueDate.setPadding(0, 0, 0, 0);
-            }
+            mTimerState.setText(R.string.timer_state_passed);
+
             mMarker.setMarker(mContext.getDrawable(R.drawable.ic_gone));
-            mTimerContainer.setVisibility(View.GONE);
-            mTimer.stop();
-            mCard.setCardBackgroundColor(mContext.getResources().getColor(R.color.red_700));
-            mSlideIcon.setImageResource(R.drawable.ic_done);
+            mTimer.start(System.currentTimeMillis() - mEvent.getEndDate());
+
         }
 
         private void onStateWaiting(long duration) {
@@ -222,7 +214,9 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
             DynamicConfig.Builder dynamicConfigBuilder = new DynamicConfig.Builder();
             dynamicConfigBuilder
                     .setTimeTextColor(mContext.getResources().getColor(R.color.black_a70))
-                    .setSuffixTextColor(mContext.getResources().getColor(R.color.black_a70));
+                    .setSuffixTextColor(mContext.getResources().getColor(R.color.black_a70))
+                    .setShowSecond(true)
+                    .setShowMinute(true);
             mTimer.dynamicShow(dynamicConfigBuilder.build());
             mTimer.start(duration);
 
@@ -267,13 +261,30 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
         private void toTealTheme() {
             mTitle.setTextColor(mContext.getResources().getColor(R.color.white));
             mDueDate.setTextColor(mContext.getResources().getColor(R.color.yellow_300));
-            mCard.setCardBackgroundColor(mContext.getResources().getColor(R.color.teal_700));
+            mCard.setCardBackgroundColor(mContext.getResources().getColor(R.color.teal_600));
             mTimerState.setTextColor(mContext.getResources().getColor(R.color.white_secondary));
             DynamicConfig.Builder dynamicConfigBuilder = new DynamicConfig.Builder();
             dynamicConfigBuilder
                     .setTimeTextColor(mContext.getResources().getColor(R.color.white_secondary))
-                    .setSuffixTextColor(mContext.getResources().getColor(R.color.white_secondary));
+                    .setSuffixTextColor(mContext.getResources().getColor(R.color.white_secondary))
+                    .setShowSecond(true)
+                    .setShowMinute(true);
             mTimer.dynamicShow(dynamicConfigBuilder.build());
+        }
+
+        private void toRedTheme() {
+            mTitle.setTextColor(mContext.getResources().getColor(R.color.white));
+            mDueDate.setTextColor(mContext.getResources().getColor(R.color.yellow_300));
+            mCard.setCardBackgroundColor(mContext.getResources().getColor(R.color.red_800));
+            mTimerState.setTextColor(mContext.getResources().getColor(R.color.white_secondary));
+            DynamicConfig.Builder dynamicConfigBuilder = new DynamicConfig.Builder();
+            dynamicConfigBuilder
+                    .setTimeTextColor(mContext.getResources().getColor(R.color.white_secondary))
+                    .setSuffixTextColor(mContext.getResources().getColor(R.color.white_secondary))
+                    .setShowSecond(false)
+                    .setShowMinute(false);
+            mTimer.dynamicShow(dynamicConfigBuilder.build());
+            mTimer.setTimerUpdateListener(null);
         }
     }
 

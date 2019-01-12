@@ -39,8 +39,8 @@
     <string name="chip_inbox">收集箱</string>
     <string name="chip_sort_alpha">按字母&#160;</string>
     <string name="chip_sort_due_date">按截止日期&#160;</string>
-    <string name="chip_sort_priority">按优先级&#160;</string>
-    <string name="chip_sort_creation_date">按创建日期&#160;</string>
+    <string name="chip_sort_priority">按优先级分类&#160;</string>
+    <string name="chip_sort_creation_date">按创建日期分类&#160;</string>
     <string name="chip_sort_order_asc">(正序)</string>
     <string name="chip_sort_order_desc">(倒序)</string>
 
@@ -78,10 +78,10 @@
 
 
     <!--Events Drawer-->
-    <string name="progress_year_summary">%1$s: %2$1.0f%%</string>
-    <string name="progress_month_summary">%1$s: %2$1.0f%%</string>
-    <string name="progress_week_summary">本周: %1$1.0f%%</string>
-    <string name="progress_today_summary">%1$s已过%2$1.0f%%</string>
+    <string name="progress_year_summary">%1$s: %2$1d%%</string>
+    <string name="progress_month_summary">%1$s: %2$1d%%</string>
+    <string name="progress_week_summary">本周: %1$1d%%</string>
+    <string name="progress_today_summary">%1$s已过%2$1d%%</string>
     <string name="all_events">所有事件</string>
     <string name="today">今天</string>
     <string name="next_7_days">未来7天</string>
