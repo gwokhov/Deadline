@@ -39,12 +39,13 @@
     <string name="chip_next_7_days">Next 7 Days</string>
     <string name="chip_completed">Completed</string>
     <string name="chip_inbox">Inbox</string>
-    <string name="chip_sort_alpha">Sort By Alpha&#160;</string>
-    <string name="chip_sort_due_date">Sort By Due date&#160;</string>
-    <string name="chip_sort_priority">Sort By Priority&#160;</string>
-    <string name="chip_sort_creation_date">Sort By Creation&#160;</string>
-    <string name="chip_sort_order_asc">(Asc)</string>
-    <string name="chip_sort_order_desc">(Desc)</string>
+    <string name="chip_sort">%1s (%2s)</string>
+    <string name="chip_sort_alpha">Sort By Alpha</string>
+    <string name="chip_sort_due_date">Sort By Due date</string>
+    <string name="chip_sort_priority">Sort By Priority</string>
+    <string name="chip_sort_creation_date">Sort By Creation</string>
+    <string name="chip_sort_order_asc">Asc</string>
+    <string name="chip_sort_order_desc">Desc</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

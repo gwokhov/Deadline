@@ -121,7 +121,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/spacing_smaller"
-                        android:text="@{viewmodel.sortDesc}"
+                        android:text='@{@string/chip_sort(viewmodel.sortDesc, viewmodel.sortOrder)}'
                         android:textColor="@color/teal_700"
                         android:visibility="@{viewmodel.sortType == SortType.CREATION_DATE ? View.GONE : View.VISIBLE}"
                         app:chipBackgroundColor="@color/teal_50"

@@ -47,7 +47,7 @@ public class EventsViewModel extends AndroidViewModel {
     public LiveData<String> sortDesc = Transformations.map(sortType, new Function<Integer, String>() {
         @Override
         public String apply(Integer type) {
-            return getSortOrderDesc(type, isOrderAsc.getValue());
+            return getSortOrderDesc(type);
         }
     });
 
@@ -68,6 +68,13 @@ public class EventsViewModel extends AndroidViewModel {
     public MutableLiveData<Boolean> isListEmpty = new MutableLiveData<>();
 
     public MutableLiveData<Boolean> isOrderAsc = new MutableLiveData<>();
+    public LiveData<String> sortOrder = Transformations.map(isOrderAsc, new Function<Boolean, String>() {
+        @Override
+        public String apply(Boolean isAsc) {
+            return isAsc ?
+                    mApplication.getString(R.string.chip_sort_order_asc) : mApplication.getString(R.string.chip_sort_order_desc);
+        }
+    });
 
     public MutableLiveData<String> quickViewTitle = new MutableLiveData<>();
     public MutableLiveData<Integer> quickViewImg = new MutableLiveData<>();
@@ -246,11 +253,8 @@ public class EventsViewModel extends AndroidViewModel {
         return res == 0 ? category : mApplication.getString(res);
     }
 
-    private String getSortOrderDesc(int sortType, boolean isAsc) {
-        String order = isAsc ?
-                mApplication.getString(R.string.chip_sort_order_asc) : mApplication.getString(R.string.chip_sort_order_desc);
-
-        return sortType == SortType.CREATION_DATE ? "" : mApplication.getString(ResourceValueUtils.getSortChipTitle(sortType)) + order;
+    private String getSortOrderDesc(int sortType) {
+        return sortType == SortType.CREATION_DATE ? "" : mApplication.getString(ResourceValueUtils.getSortChipTitle(sortType));
     }
 
 

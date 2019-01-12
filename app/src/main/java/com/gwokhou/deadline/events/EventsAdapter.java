@@ -148,7 +148,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
             mState.setVisibility(View.VISIBLE);
             mDueDate.setTextColor(mContext.getResources().getColor(R.color.teal_600));
             if (mEvent.getPriority() != PriorityType.NONE) {
-                mDueDate.setPadding(0, 0, 48, 0);
+                mDueDate.setPadding(0, 0, 56, 0);
             } else {
                 mDueDate.setPadding(0, 0, 0, 0);
             }
