@@ -226,6 +226,7 @@ public class EventsViewModel extends AndroidViewModel {
 
         switch (sortType.getValue()) {
             case SortType.PRIORITY:
+                sortedEvents = SortUtils.sortByDueDate(sortedEvents, isOrderAsc.getValue());
                 sortedEvents = SortUtils.sortByPriority(sortedEvents, isOrderAsc.getValue());
                 break;
             case SortType.DUE_DATE:

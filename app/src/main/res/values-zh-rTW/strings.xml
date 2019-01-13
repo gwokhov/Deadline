@@ -36,12 +36,13 @@
     <string name="chip_next_7_days">未來7天</string>
     <string name="chip_completed">已完成</string>
     <string name="chip_inbox">收集箱</string>
-    <string name="chip_sort_alpha">按字母&#160;</string>
-    <string name="chip_sort_due_date">按截止日期&#160;</string>
-    <string name="chip_sort_priority">按優先度分類&#160;</string>
-    <string name="chip_sort_creation_date">按建立日期分類&#160;</string>
-    <string name="chip_sort_order_asc">(正序)</string>
-    <string name="chip_sort_order_desc">(倒序)</string>
+    <string name="chip_sort">%1s (%2s)</string>
+    <string name="chip_sort_alpha">按字母</string>
+    <string name="chip_sort_due_date">按截止日期</string>
+    <string name="chip_sort_priority">按優先度</string>
+    <string name="chip_sort_creation_date">按建立日期</string>
+    <string name="chip_sort_order_asc">正序</string>
+    <string name="chip_sort_order_desc">倒序</string>
 
     <string name="navigation_drawer_open">打開抽屜</string>
     <string name="navigation_drawer_close">關閉抽屜</string>

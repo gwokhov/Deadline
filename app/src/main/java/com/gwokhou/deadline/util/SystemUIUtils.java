@@ -2,8 +2,11 @@ package com.gwokhou.deadline.util;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Build;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 
@@ -16,18 +19,19 @@ import androidx.appcompat.widget.Toolbar;
 public class SystemUIUtils {
 
     public static void setupActionBar(Activity activity, boolean isLightBar, int bgColorRes, int bgColorRes2, int titleRes, Toolbar toolbar) {
+        Window window = activity.getWindow();
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            activity.getWindow().setStatusBarColor(activity.getResources().getColor(bgColorRes2));
+            window.setStatusBarColor(activity.getResources().getColor(bgColorRes2));
             if (!isLightBar) {
                 toolbar.setTitleTextColor(activity.getResources().getColor(R.color.white));
             }
         } else {
-            activity.getWindow().setStatusBarColor(activity.getResources().getColor(bgColorRes, null));
+            window.setStatusBarColor(activity.getResources().getColor(bgColorRes, null));
             if (isLightBar) {
-                activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
             } else {
                 toolbar.setTitleTextColor(activity.getResources().getColor(R.color.white));
-                activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+                window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
             }
         }
 

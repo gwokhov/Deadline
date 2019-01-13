@@ -3,7 +3,6 @@ package com.gwokhou.deadline.about;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.gwokhou.deadline.R;
 import com.gwokhou.deadline.util.DonateUtils;
 import com.gwokhou.deadline.util.SnackbarUtils;
